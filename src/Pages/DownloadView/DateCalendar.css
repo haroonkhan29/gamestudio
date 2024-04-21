@@ -1,0 +1,123 @@
+.date-filter {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+}
+
+.custom-label {
+  margin-bottom: 5px;
+  font-weight: bold; 
+  color: #3498db;  
+}
+
+.date-filter input[type="date"].custom-date-input {
+  width: 250px;
+  padding: 20px;
+  margin-bottom: 1%;
+  font-size: 14px;
+  color: red;
+  font-weight: bold;
+  border: 2px solid #ac3434;
+  border-radius: 5px;
+}
+
+
+.bank-view-containers {
+  padding: 10px;
+  border-radius: 3px; 
+}
+.styled-tables {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.styled-tables tr:hover {
+  background-color:#bdddff;
+
+}
+.styled-tables th, .styled-tables td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border: 1px solid #006f9f;
+}
+
+.styled-tables th {
+  background-color: #5d7b9c; 
+  color: white;
+
+}
+.styled-tables th, .styled-tables td {
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}
+.paginations {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.paginations button {
+  cursor: pointer;
+  padding: 8px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.paginations button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.paginations span {
+  padding: 8px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+.button-containers button {
+  background-color: #0056b3;
+  color: #fff;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button-containers button:hover {
+  background-color: #007bff;
+}
+.bank-logo1 {
+  max-width: 20px; 
+  max-height: 20px; 
+  margin-right: 0px;
+  margin:  0 auto;
+  border-radius: 50%;
+}
+@media screen and (max-width: 767px) {
+  .bank-view-containers {
+    padding: 8px;
+  }
+
+  .styled-tables th,
+  .styled-tables td {
+    padding: 10px;
+  }
+
+  .paginations {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .paginations button,
+  .paginations span {
+    margin-top: 5px;
+  }
+}
+.hidden {
+  display: none;
+}

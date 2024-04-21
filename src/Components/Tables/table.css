@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  text-align: left;
+  padding: 6px 15px;
+}
+.date-header {
+  font-weight: bold;
+  color: black;
+  font-size: 18px; 
+  margin-top: 2%;
+}
+
+table thead tr:not(:first-child) th {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+table tbody tr td {
+  font-size: 14px;
+  padding: 8px 0px;
+}

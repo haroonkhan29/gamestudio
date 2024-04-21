@@ -1,0 +1,52 @@
+
+.password-input-container {
+    position: relative;
+  }
+  
+  .toggle-password-button {
+    position: absolute;
+    left: 400px;
+    top: 40%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 15px;
+  }
+  
+  .form1-button {
+    width: 200%;
+    display: inline-block;
+    padding: 13px;
+    background-color: #77d6a0;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px; 
+  }
+  
+  .form1-button:hover {
+    background-color: #27ae60;
+}
+  
+  .form-label-checkbox {
+    display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 15px;
+  }
+  
+  .checkbox-input {
+    margin-right: 1px;
+  }
+  .or-text {
+     text-align: center;
+     width: 200%;
+     margin-top: 1px;
+     font-weight: bold;
+     font-size: 15px;
+  }

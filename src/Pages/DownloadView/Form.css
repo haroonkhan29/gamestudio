@@ -1,0 +1,37 @@
+.edit-form2
+{
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  .edit-form2 {
+    background-color: white;
+    padding: 40px;
+    border: 1px solid #3498db;  
+    border-radius: 10px;
+  }
+
+  .button-row {
+    display: flex;
+    margin-top: 20px;
+    margin-right: auto;
+  }
+  button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    background: rgba(64, 206, 151, 1);
+  }
+  
+  button:hover {
+    background: #3498db;
+  }
+  button.update
+ {
+    margin-right: 10px;
+  }
+  

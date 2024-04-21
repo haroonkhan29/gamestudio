@@ -1,0 +1,86 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  } 
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .balance-header {
+    text-align: right;
+  }
+  
+  .totalHeader {
+    text-align: left;
+    color: white;
+    font-weight: bold;
+    background-color: #5d7b9c; 
+  }
+  
+  .total {
+    color: white;
+    font-weight: bold;
+    background-color: #5d7b9c; 
+
+  }
+  
+  .balance {
+    font-weight: bold;
+    background-color: rgb(255, 252, 68); 
+
+  }
+  .balances
+  {
+    color: white;
+    font-weight: bold;
+    background-color: #5d7b9c; 
+  }
+  .edit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .edit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .update-btn {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .update-btn:hover {
+    background-color: #0073e6;
+  }

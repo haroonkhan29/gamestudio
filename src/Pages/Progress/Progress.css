@@ -1,0 +1,106 @@
+.progress-detail{
+  max-width: 770px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  color: #3498db; 
+  text-align: center;
+  padding: 10px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 25px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
+}
+
+.progress-detail {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #3498db;  
+  border-radius: 10px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.form-row {
+  margin-bottom: 0px;
+}
+
+.input-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  width: calc(180% - 24px); 
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.progress-detail button
+ {
+  background: rgba(64, 206, 151, 1);
+  color: #fff;
+  padding: 15px 25px;  
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  align-items: center;
+  margin-top: 2%;
+  display: block;
+  margin-left: 80%;
+}
+.progress-detail  button:hover {
+  background: #3498db;
+}
+input[name="googleAccount"],
+input[name="gameAccount"],
+input[name="iOSAccount"] {
+  background-color: rgb(255, 255, 255);
+  color: #ff0000;
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 25px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+input[name="googleAccount"]::-ms-expand,
+input[name="gameAccount"]::-ms-expand,
+input[name="iOSAccount"]::-ms-expand {
+  display: none;
+}
+
+input[name="googleAccount"]:valid,
+input[name="gameAccount"]:valid,
+input[name="iOSAccount"]:valid {
+  background-color: rgb(57, 153, 232);
+  color: #ffffff;
+  font-size: large;
+}
+
+datalist#googleAccountList option,
+datalist#GameAccountList option,
+datalist#iOSAccountList option {
+  background-color: #545454;
+  color: #ffffff;
+}

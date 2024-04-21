@@ -1,0 +1,159 @@
+.bank-detail-form{
+  max-width: 770px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header {
+  border: 2px solid #939393; 
+  background-color: #ffffff;
+  box-sizing: border-box;
+  max-width: 17%; 
+  padding: 7px; 
+}
+.bank-logo {
+  max-width: 100px;
+  margin-top: 10px;
+}
+.header h1 {
+  margin: 0;
+  font-size: 25px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+
+}
+.bank-detail-form {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #3498db;  
+  border-radius: 10px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.form-row label{
+  margin-bottom: 0px;
+  color: rgb(2, 131, 211);
+  font-size: 15px;
+}
+.bold-red-row td {
+  font-weight: bold;
+  color: red;
+}
+
+.input-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+
+}
+
+.input-group {
+  width: calc(180% - 24px); 
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+  
+}
+.input-group label input[type="date"] {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  color: #f30000;
+  font-weight: bold;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+.input-group label input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: -30px;
+}
+.input-group label input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(16%) sepia(300%) saturate(501%) hue-rotate(179deg) brightness(223%) contrast(1101%);
+}
+
+.bank-detail-form button
+ {
+  background: rgba(64, 206, 151, 1);
+  color: #fff;
+  padding: 15px 25px;  
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  align-items: center;
+  margin-top: 10%;
+  display: block;
+  margin-left: 80%;
+}
+
+.bank-detail-form button :hover {
+background-color: rgb(22, 137, 93);
+}
+input[name="bank"] {
+  background-color: rgb(255, 255, 255);
+  color: #ff0000;
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 25px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+input[name="bank"]::-ms-expand {
+  display: none;
+}
+
+input[name="bank"]:valid {
+background-color: rgb(57, 153, 232);
+color: #ffffff;
+font-size: large;
+}
+
+datalist #bankList option {
+  background-color: #545454;
+  color: #ffffff;
+}
+input[name="google"] {
+  background-color: rgb(255, 255, 255);
+  color: #ff0000;
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 25px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+input[name="google"]::-ms-expand {
+  display: none;
+}
+
+datalist#googleList option {
+  background-color: #545454;
+  color: #ffffff;
+}
+
+input[name="google"]:valid {
+  background-color: rgb(57, 153, 232);
+  color: #ffffff;
+  font-size: large;
+}
+
+@media (max-width: 768px) {
+  .input-group {
+    grid-template-columns: 1fr;
+  }
+}

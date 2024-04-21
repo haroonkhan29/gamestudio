@@ -1,0 +1,176 @@
+.bank-detail-form2{
+  max-width: 1380px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bank-logo {
+  max-width: 100px;
+  margin-top: 10px;
+}
+.bank-detail-form2 {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #3498db;  
+  border-radius: 10px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.form-row {
+  margin-bottom: 0px;
+}
+
+.input-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+  
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  
+}
+
+.input-group {
+  width: calc(180% - 24px); 
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+  
+}
+.bank-detail-form2 button
+ {
+  background: rgba(64, 206, 151, 1);
+  color: #fff;
+  padding: 15px 25px;  
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  align-items: center;
+  display: block;
+  margin-top: 2%;
+  margin-left: 45%;
+}
+
+.bank-detail-form2 button:hover {
+  background: #3498db;
+
+}
+  input[name="project"] {
+    background-color: rgb(255, 255, 255);
+    color: #ff0000;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-right: 25px;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+  
+  input[name="project"]::-ms-expand {
+    display: none;
+  }
+  
+  datalist#projectList option {
+    background-color: #545454;
+    color: #ffffff;
+  }
+  
+  input[name="project"]:valid {
+    background-color: rgb(57, 153, 232);
+    color: #ffffff;
+    font-size: large;
+  }
+  input[name="developer"] {
+    background-color: rgb(255, 255, 255);
+    color: #ff0000;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-right: 25px;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+  
+  input[name="developer"]::-ms-expand {
+    display: none;
+  }
+  
+  datalist#developerList option {
+    background-color: #545454;
+    color: #ffffff;
+  }
+  
+  input[name="developer"]:valid {
+    background-color: rgb(57, 153, 232);
+    color: #ffffff;
+    font-size: large;
+  }
+  input[name="department1"] {
+    background-color: rgb(255, 255, 255);
+    color: #ff0000;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-right: 25px;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+  input[name="department1"]::-ms-expand {
+    display: none;
+  }
+  
+  input[name="department1"]:valid {
+  background-color: rgb(57, 153, 232);
+  color: #ffffff;
+  font-size: large;
+  }
+  
+  datalist #departmentList option {
+    background-color: #545454;
+    color: #ffffff;
+  }
+.input-group1 .status-label {
+    margin-left: 1%;
+    margin-top: 1%;
+
+  }
+  .custom-form .form-row {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .custom-form .main-row > * {
+    flex: 1;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 10px; 
+  }
+  
+  .label {
+    text-align: left; 
+    color: #3498db;
+    font-weight: bold;
+  }
+  
+  input[type="date"], input[type="text"] {
+    width: 100%; 
+  }
+  input[type="date"]{
+    color: #ff0000;
+    font-weight: bold;
+    font-size: large;
+
+  }  

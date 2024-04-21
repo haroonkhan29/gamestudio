@@ -1,0 +1,231 @@
+body, h1, h2, h3, p, ul, ol, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tableWrapper {
+  margin: 10px;
+}
+
+.employeeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employeeTable th,
+.employeeTable td {
+  border: 1px solid #006f9f;
+  padding: 12px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+.employeeTable th {
+  background-color: #5d7b9c; 
+  color: white;
+  font-weight: bold;
+  
+}
+
+.custom-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #5d7b9c; 
+  z-index: 1;
+}
+/* 
+.employeeTable thead th,
+.employeeTable tbody tr:nth-child(-n+5) {
+  position: sticky;
+  top: 0;
+  z-index: 2; 
+}
+
+.employeeTable tbody tr:nth-child(1) {
+  top: 20px; 
+}
+
+.employeeTable tbody tr:nth-child(2) {
+  top: 100px;
+}
+
+.employeeTable tbody tr:nth-child(3) {
+  top: 150px; 
+}
+
+.employeeTable tbody tr:nth-child(4) {
+  top: 200px; 
+}
+
+.employeeTable tbody tr:nth-child(5) {
+  top: 250px; 
+} */
+.employeeTable tr:hover {
+  background-color: #e6f7ff; 
+}
+
+.femaleRow {
+  background-color: #edf4fa; 
+}
+
+.employeeTable .icon {
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.employeeTable .icon:hover {
+  color: #0056b3; 
+}
+
+.employeeTable .menuIcon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+  margin-right: 5px;
+}
+
+.employeeTable .menuIcon:hover {
+  color: #007bff;
+}
+
+.employeeTable .menu {
+  padding: 8px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  position: absolute;
+  z-index: 1;
+  display: none;
+}
+.employeeTable .menu.show {
+  display: block;
+}
+.employeeTable .menuItem {
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #f8f8f8;
+}
+
+.employeeTable .menuItem:hover {
+  background-color: #b8b8b8; 
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 15px;
+  margin: 0 4px;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #e6e6e6; 
+  border-color: #ddd;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  color: #888;
+  background-color: #ddd;
+}
+
+.pagination span {
+  padding: 10px 15px;
+  margin: 0 4px;
+  background-color: #0056b3;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Existing CSS */
+
+.searchWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.formerRow {
+  color: rgb(255, 0, 0); ;
+}
+
+.searchContainer {
+  position: relative;
+}
+.leavingDateRow {
+  color: rgb(255, 0, 0); ;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+.searchButton {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 12px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input, .searchButton {
+  transition: all 0.3s ease;
+}
+
+.searchButton svg {
+  font-size: 20px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.searchButton:hover {
+  background-color: #007bff;
+}
+
+@media screen and (max-width: 767px) {
+  input {
+    width: 100%;
+  }
+  
+  .searchButton {
+    right: 0;
+  }
+}
+
+
+
+.profile-picture {
+  height: 55px;
+  width:  55px;
+  display:block;
+  margin:  0 auto;
+  margin-top: 5px ;
+  object-fit:cover;
+} 

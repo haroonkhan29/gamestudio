@@ -1,0 +1,150 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+  .login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./images/cover.PNG'); 
+    background-size: cover;
+    filter: blur(19px); 
+    z-index: -1; 
+  }
+  
+.login-form {
+  width: 550px;
+  padding: 20px;
+  border: 5px solid #edecec;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+.error-message {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.form-title {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #650202;
+  margin-bottom: 20px;
+}
+.form-title1{
+  text-align: center;
+  font-size: 1rem;
+}
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #333;
+
+}
+.form-label{
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-label .icon {
+  display: block;
+  position: absolute;
+  left: 10px; 
+  top: 35%;
+  transform: translateY(-50%);
+  color: rgb(0, 0, 0);
+}
+
+.form-label input {
+  padding-left: 40px; 
+}
+.form-input {
+  width: 200%;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+
+}
+
+.remember-forgot-container {
+  width: 200%;
+  display: inline-block;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.remember-password {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.remember-password input {
+  margin-right: 8px;
+  
+}
+.password-input-container .toggle-password-button{
+  color: #ffffff;
+}
+.remember-forgot-container .forgot-password {
+  text-decoration: none;
+  color: #3498db;
+  font-size: 1rem;
+  margin-left: 10%;
+  font-weight: bold;
+  border: none;
+  background-color: #ffffff;
+
+}
+.form-button {
+  width: 200%;
+  padding: 10px;
+  background-color: #0060a0;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.form-button:hover {
+  background-color: #2980b9;
+}
+
+.center-button {
+  text-align: center;
+}
+.register-message {
+  text-align: center;
+  width: 200%;
+  margin-top: 15px;
+}
+
+.register-button {
+  display: block; 
+  width: 100%;
+  padding: 10px;
+  background-color: #77d6a0;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.register-button:hover {
+  background-color: #27ae60;
+}

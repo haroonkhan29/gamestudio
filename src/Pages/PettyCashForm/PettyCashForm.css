@@ -1,0 +1,40 @@
+.bank-detail-formss table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.bank-detail-formss th,
+.bank-detail-form td {
+  background-color: #5d7b9c; 
+  color: white;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.bank-detail-formss input[type="date"],
+.bank-detail-formss input[type="text"],
+.bank-detail-formss input[type="number"],
+.bank-detail-formss input[type="file"] {
+  width: calc(100% - 16px);
+  border: none;
+  padding: 6px;
+}
+.bank-detail-formss input[type="date"]
+{
+
+  color: red;
+  font-weight: bold;
+}
+.bank-detail-formss input[type="file"] {
+  padding: 4px;
+}
+.saving
+{
+  margin-top: 1%;
+}
+p{
+  text-align: center;
+  font-weight: bold;
+  color: red;
+  margin-top: 2%;
+}

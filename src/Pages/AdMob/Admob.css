@@ -1,0 +1,191 @@
+.admob-detail-form{
+  max-width: 770px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  color: #3498db; 
+  text-align: center;
+  padding: 10px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 25px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
+}
+
+.admob-detail-form {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid  #3498db;
+  border-radius: 10px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.form-row {
+  margin-bottom: 0px;
+}
+
+.input-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  width: calc(180% - 24px); 
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.admob-detail-form button
+ {
+  background: rgba(64, 206, 151, 1);
+  color: #fff;
+  padding: 15px 25px;  
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  align-items: center;
+  margin-top: 2%;
+  display: block;
+  margin-left: 80%;
+}
+.admob-detail-form  button:hover {
+  background: #3498db;
+}
+.styled-table th, .styled-table td {
+  border: 1px solid #006f9f;
+  padding: 8px;
+
+}
+.selected-data {
+  top: 10px;
+  left: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+   background-color: rgba(255, 255, 255, 0.7);
+   z-index: 1;
+
+}
+.date-span,
+.account-name-span {
+  margin: 0;
+  font-weight: bold;
+  font-size: large;
+  color: rgb(230, 0, 0);
+}
+.close-icon {
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #1100ff; 
+  font-size: 24px; 
+  font-weight: bold;
+}
+
+.line {
+  width: 20px;
+  height: 20px; 
+  margin: 0 0px;
+  background-color: #006f9f;
+}
+
+.selected-image {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.carousel img {
+  height: 100vh; 
+  width: auto;
+  object-fit: contain; 
+}
+.carousel-top-info {
+  position: absolute;
+  top: 10px;
+  transform: translateX(-10%);
+  background-color:#ffffff;
+  border-radius: 10px;
+  color: white;
+  z-index: 1;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  transition: transform 0.5s ease-in-out;
+  display: flex;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  margin-right: 15px; 
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; 
+  height: 60px; 
+  border-radius: 100%;
+  z-index: 2;
+}
+
+
+.prev-arrow {
+  left: 2px;
+}
+
+.next-arrow {
+  right: 2px;
+}
+.carousel-item {
+  position: relative;
+}
+.close-icon {
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #1100ff;
+  font-size: 24px;
+  font-weight: bold;
+}
+

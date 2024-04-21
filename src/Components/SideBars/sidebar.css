@@ -1,0 +1,93 @@
+.css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root {
+    padding-left: 10px !important;
+    padding-right: 0px !important;
+} 
+.css-cveggr-MuiListItemIcon-root{
+    min-width: 35px !important;
+}
+.css-10hburv-MuiTypography-root{
+    font-weight: normal !important;
+}
+.css-cveggr-MuiListItemIcon-root{
+    color: inherit !important;
+}
+.navlink {
+    text-decoration: none;
+    width: 100%;
+}
+
+.activeNavLink{
+    color:rgb(25, 134, 243);
+    position: relative;
+}
+
+.activeNavLink::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    width: 7px;
+    height: 50%;
+    transform: translateY(-50%);
+    background:rgb(25, 134, 243);
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
+        transition: width .8s ease-in-out;
+}
+
+
+.activeNavLink .css-10hburv-MuiTypography-root{
+    font-weight: 500 !important;
+}
+
+.inActiveNavLink{
+    color: gray;
+}
+
+.bottomCard{
+    width:80%;
+    margin: auto;
+    padding-top: 20px;
+    border-top: 2px solid rgba(219, 226, 255, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.imageWrapper{
+    width: 25%;
+    height: 50px;
+
+}
+
+.imageWrapper img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.textWrapper {
+    padding-left: 10px;
+    width: 60%;
+}
+
+.iconWrapper{
+    color: red;
+    width:20%;
+    text-align: right;
+}
+
+  .fontHeader .blueText {
+    color: rgb(212, 22, 22); 
+    font-family: 'Bruno Ace SC', sans-serif;
+    color: DodgerBlue;
+
+
+  }
+  .fontHeader .blackText {
+    color: black;
+    font-family: 'Bruno Ace SC', sans-serif;
+
+  }
+  .file-input {
+    display: none;
+  }
