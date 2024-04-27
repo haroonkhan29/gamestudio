@@ -13,7 +13,7 @@ const SelectedRecordPage = ({ selectedRecord, onClose }) => {
         <h2 className="record-heading">Employee</h2>
         <div className="record-details">
           <img
-            src={`http://35.184.241.89:3000/uploads/${selectedRecord.profilePic}`}
+            src={`http://localhost:8080/uploads/${selectedRecord.profilePic}`}
             alt="Profiles"
             className="profile-picturess"
           />

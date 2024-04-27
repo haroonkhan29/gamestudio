@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+
 }
   .login-container::before {
     content: '';
@@ -11,9 +12,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('./images/cover.PNG'); 
+    background-image: url('./images/cover1.jpg'); 
     background-size: cover;
-    filter: blur(19px); 
+    filter: blur(2px); 
     z-index: -1; 
   }
   
@@ -60,9 +61,18 @@
   transform: translateY(-50%);
   color: rgb(0, 0, 0);
 }
+.form-label .icon2 {
+  display: block;
+  position: absolute;
+  left: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(0, 0, 0);
+}
 
 .form-label input {
   padding-left: 40px; 
+  width: 200%;
 }
 .form-input {
   width: 200%;
@@ -76,7 +86,7 @@
 }
 
 .remember-forgot-container {
-  width: 200%;
+  width: 140%;
   display: inline-block;
   justify-content: space-between;
   margin-bottom: 12px;
@@ -94,7 +104,10 @@
   
 }
 .password-input-container .toggle-password-button{
-  color: #ffffff;
+  color: #000000;
+}
+.password-input-container .toggle-password-button:hover {
+  background: transparent; 
 }
 .remember-forgot-container .forgot-password {
   text-decoration: none;

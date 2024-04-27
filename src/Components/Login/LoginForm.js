@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../AuthContext';
 import CustomAlert from './CustomAlert';
 import LockIcon from '@mui/icons-material/Lock';
@@ -19,9 +19,25 @@ import ForgotPasswordForm from './ForgotPasswordForm';
   const [showPassword, setShowPassword] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
+
+
+
+  useEffect(() => {
+    const registeredUsername = localStorage.getItem('registeredUsername');
+    if (registeredUsername) {
+      setUsername(registeredUsername);
+    }
+  }, []);
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleLogin();
+    }
+  };
+
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://35.184.241.89:3000/user/login', {
+      const response = await fetch('http://localhost:8080/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +74,7 @@ import ForgotPasswordForm from './ForgotPasswordForm';
   };
 
   const handleRegisterSuccess = ({ username, email, password }) => {
-    setUsername('');
+    setUsername(username); 
     setPassword('');
 
     localStorage.setItem('registeredUsername', username);
@@ -102,6 +118,7 @@ import ForgotPasswordForm from './ForgotPasswordForm';
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  onKeyPress={handleKeyPress}
                   placeholder="Username"
 
                 />
@@ -116,6 +133,7 @@ import ForgotPasswordForm from './ForgotPasswordForm';
                     type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    onKeyPress={handleKeyPress}
                     placeholder="Password"
                   />
                   <button

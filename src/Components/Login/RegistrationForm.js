@@ -16,6 +16,17 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+
+
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleRegister();
+    }
+  };
+
+
+
   const handleRegister = async () => {
     if (!newUsername) {
       setUsernameError('Username is required');
@@ -38,7 +49,7 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
     }
 
     try {
-      const response = await fetch('http://35.184.241.89:3000/user/register', {
+      const response = await fetch('http://localhost:8080/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -123,6 +134,8 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
                 setUsernameError('');
               }}
               placeholder="Username"
+              onKeyPress={handleKeyPress}
+
             />
             <span className="error-message">{usernameError}</span>
           </label>
@@ -138,6 +151,8 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
                 setEmailError('');
               }}
               placeholder="Email"
+              onKeyPress={handleKeyPress}
+
 
             />
             <span className="error-message">{emailError}</span>
@@ -155,6 +170,8 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
                   setPasswordError('');
                 }}
                 placeholder="Password"
+                onKeyPress={handleKeyPress}
+
               />
               <button
                 type="button"

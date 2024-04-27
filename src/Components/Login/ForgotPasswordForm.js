@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import LockIcon from '@mui/icons-material/Lock';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 const ForgotPasswordForm = ({ onResetPassword, onBackToLogin }) => {
   const [email, setEmail] = useState('');
@@ -7,7 +9,7 @@ const ForgotPasswordForm = ({ onResetPassword, onBackToLogin }) => {
 
   const handleResetPassword = async () => {
     try {
-      const response = await fetch('http://35.184.241.89:3000/user/forgot-password', {
+      const response = await fetch('http://localhost:8080/user/forgot-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,24 +63,30 @@ const ForgotPasswordForm = ({ onResetPassword, onBackToLogin }) => {
       <h2 className="form-title1">Forgot Password</h2>
       <form>
         <label className="form-label">
+        <AlternateEmailIcon  className="icon2" />      
           Email:
           <input
             className="form-input"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
           />
         </label>
         <br />
         <label className="form-label">
+        <LockIcon className="icon2"/> 
           New Password:
           <input
             className="form-input"
             type="password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
+            placeholder="Password"
           />
+          
         </label>
+        
         <br />
         <button className="form-button" type="button" onClick={handleResetPassword}>
           Reset Password
