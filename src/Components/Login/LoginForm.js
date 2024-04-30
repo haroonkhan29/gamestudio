@@ -4,7 +4,7 @@ import CustomAlert from './CustomAlert';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import './LoginForm.css';
-import RegistrationForm from './RegistrationForm';
+// import RegistrationForm from './RegistrationForm';
 import ForgotPasswordForm from './ForgotPasswordForm';
 
   const LoginForm = () => {
@@ -20,14 +20,12 @@ import ForgotPasswordForm from './ForgotPasswordForm';
   const [showAlert, setShowAlert] = useState(false);
 
 
-
-
-  useEffect(() => {
-    const registeredUsername = localStorage.getItem('registeredUsername');
-    if (registeredUsername) {
-      setUsername(registeredUsername);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const registeredUsername = localStorage.getItem('registeredUsername');
+  //   if (registeredUsername) {
+  //     setUsername(registeredUsername);
+  //   }
+  // }, []);
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -73,10 +71,12 @@ import ForgotPasswordForm from './ForgotPasswordForm';
     setShowRegistration(true);
   };
 
-  const handleRegisterSuccess = ({ username, email, password }) => {
+  const handleRegisterSuccess = ({ firstname , lastname , username, email, password }) => {
     setUsername(username); 
     setPassword('');
 
+    localStorage.setItem('registeredFirstname', firstname);
+    localStorage.setItem('registeredLastname', lastname);
     localStorage.setItem('registeredUsername', username);
     localStorage.setItem('registeredEmail', email);
     localStorage.setItem('registeredPassword', password);
@@ -105,8 +105,8 @@ import ForgotPasswordForm from './ForgotPasswordForm';
       <div className="login-form form-inner">
         <h2 className="form-title">{showRegistration ? '' : 'Log in'}</h2>
         {showRegistration ? (
-          <RegistrationForm onRegisterSuccess={handleRegisterSuccess} onBackButtonClick={handleBackToLogin} />
-        ) : showForgotPassword ? (
+        //   <RegistrationForm onRegisterSuccess={handleRegisterSuccess} onBackButtonClick={handleBackToLogin} />
+        // ) : showForgotPassword ? (
           <ForgotPasswordForm onResetPassword={handleResetPassword} onBackToLogin={handleBackToLogin} />
         ) : (
           <>
@@ -138,7 +138,7 @@ import ForgotPasswordForm from './ForgotPasswordForm';
                   />
                   <button
                     type="button"
-                    className="toggle-password-button"
+                    className="toggle-password-buttons"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? 'Hide' : 'Show'}
@@ -156,16 +156,16 @@ import ForgotPasswordForm from './ForgotPasswordForm';
                   />
                 </label>
                 Remember me
-                <button className="forgot-password" onClick={handleForgotPasswordClick}>
+                {/* <button className="forgot-password" onClick={handleForgotPasswordClick}>
                   Forgot password?
-                </button>
+                </button> */}
               </div>
               <br />
               <button className="form-button" type="button" onClick={handleLogin}>
                 LOG IN
               </button>
               <br />
-              <p className="register-message">
+              {/* <p className="register-message">
                 Don't have an account?{' '}
                 <button
                   type="button"
@@ -174,7 +174,7 @@ import ForgotPasswordForm from './ForgotPasswordForm';
                 >
                   SIGN UP
                 </button> 
-              </p>
+              </p> */}
             </form>
             {showAlert && (
               <CustomAlert

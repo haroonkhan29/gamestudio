@@ -19,6 +19,7 @@ import CompainCost from "./Pages/CompainCost/CompainCost";
 import EmployeeRecord from "./Pages/EmployeeRecord";
 import PettyCashList from "./Pages/PettyCashList/PettyCashList";
 import Login from "./Components/Login/Login";
+import RegistrationTable from "./Components/Login/RegistrationTable";
 import Logout from "./Components/Login/Logout";
 import EditForm from "./Pages/EditForm/EditForm";
 import CustomAlert from "./Components/Login/CustomAlert";
@@ -29,6 +30,7 @@ import ExpenseSheet from "./Pages/ExpenseSheet/ExpenseSheet";
 import NextPage from "./Pages/Nextpage/NextPage";
 import PettyCashForm from "./Pages/PettyCashForm/PettyCashForm";
 import EmployeeContext from "./EmployeeContext";
+import RegistrationForm from "./Components/Login/RegistrationForm";
 import admobscreen from "./Pages/AdMob/admobscreen";
 
 const App = () => {
@@ -65,7 +67,9 @@ const App = () => {
               <Route path="compain-cost" element={<CompainCost />} />
               <Route path="record" element={<EmployeeRecord />} />
               <Route path="edit" element={<EditForm />} />
+              <Route path="registrationForm" element={<RegistrationForm />} />
               <Route path="login" element={<Login />} />
+              <Route path="data" element={<RegistrationTable />} />
               <Route path="custom" element={<CustomAlert />} />
               <Route path="logout" element={<Logout />} />
               <Route path="mycomponent" element={<MyComponent />} />

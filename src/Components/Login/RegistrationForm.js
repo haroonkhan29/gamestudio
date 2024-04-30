@@ -3,20 +3,24 @@ import { toast } from 'react-toastify';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
+import Person3Icon from '@mui/icons-material/Person3';
 import 'react-toastify/dist/ReactToastify.css';
 import './RegistrationForm.css';
 
 const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
+  const [newFirstName, setNewFirstName] = useState('');
+  const [newLastName, setNewLastName] = useState('');
   const [newUsername, setNewUsername] = useState('');
   const [newEmail, setNewEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [firstNameError, setFirstNameError] = useState('');
+  const [lastNameError, setLastNameError] = useState('');
   const [usernameError, setUsernameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-
-
+  const [type, setGender] = useState('admin'); 
 
 
   const handleKeyPress = (e) => {
@@ -25,9 +29,17 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
     }
   };
 
-
-
   const handleRegister = async () => {
+    if (!newFirstName) {
+      setFirstNameError('First name is required');
+      return;
+    }
+
+    if (!newLastName) {
+      setLastNameError('Last name is required');
+      return;
+    }
+
     if (!newUsername) {
       setUsernameError('Username is required');
       return;
@@ -55,21 +67,26 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          firstname: newFirstName,
+          lastname: newLastName,
           username: newUsername,
           email: newEmail,
           password: newPassword,
+          type: type, 
         }),
       });
 
       if (response.ok) {
         setRegistrationSuccess(true);
         onRegisterSuccess({
+          firstname: newFirstName,
+          lastname: newLastName,
           username: newUsername,
           email: newEmail,
           password: newPassword,
+          type: type, 
         });
-
-        toast.success('Registration successful! Now you can log in with your new account.', {
+        toast.success('Registration successful!', {
           position: 'bottom-center',
           autoClose: 2000,
           hideProgressBar: false,
@@ -90,43 +107,55 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
             draggable: true,
           });
         } else {
-          toast.error('An error occurred during registration. Please try again.', {
-            position: 'bottom-center',
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          });
+  
         }
       }
     } catch (error) {
       console.error('Error during registration:', error);
-      toast.error('An unexpected error occurred. Please try again.', {
-        position: 'bottom-center',
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
     }
   };
-  
+
   return (
     <div className="registration-form">
-      <h2 className="form-title">SIGN UP</h2>
-      {registrationSuccess ? (
-        <div>
-          <p>Registration successful!</p>
-          <p>Now you can log in with your new account.</p>
-        </div>
-      ) : (
+      <h2 className="form-titles">SIGN UP</h2>
         <form>
-          <label className="form-label">
-          <PersonIcon  className="icon" /> 
+          <div class="form-container">
+          <label className="form-labels">
+            <PersonIcon className="icons" />
             <input
-              className="form-input"
+              className="form-inputs"
+              type="text"
+              value={newFirstName}
+              onChange={(e) => {
+                setNewFirstName(e.target.value);
+                setFirstNameError('');
+              }}
+              placeholder="First Name"
+              onKeyPress={handleKeyPress}
+            />
+            <span className="error-messages">{firstNameError}</span>
+          </label>
+          <br />
+          <label className="form-labels">
+            <PersonIcon className="icons" />
+            <input
+              className="form-inputs"
+              type="text"
+              value={newLastName}
+              onChange={(e) => {
+                setNewLastName(e.target.value);
+                setLastNameError('');
+              }}
+              placeholder="Last Name"
+              onKeyPress={handleKeyPress}
+            />
+            <span className="error-messages">{lastNameError}</span>
+          </label>
+          <br />
+          <label className="form-labels">
+            <Person3Icon className="icons" />
+            <input
+              className="form-inputs"
               type="text"
               value={newUsername}
               onChange={(e) => {
@@ -135,15 +164,14 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
               }}
               placeholder="Username"
               onKeyPress={handleKeyPress}
-
             />
-            <span className="error-message">{usernameError}</span>
+            <span className="error-messages">{usernameError}</span>
           </label>
           <br />
-          <label className="form-label">
-          <AlternateEmailIcon  className="icon" />          
+          <label className="form-labels">
+            <AlternateEmailIcon className="icons" />
             <input
-              className="form-input"
+              className="form-inputs"
               type="email"
               value={newEmail}
               onChange={(e) => {
@@ -152,26 +180,23 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
               }}
               placeholder="Email"
               onKeyPress={handleKeyPress}
-
-
             />
-            <span className="error-message">{emailError}</span>
+            <span className="error-messages">{emailError}</span>
           </label>
           <br />
-          <label className="form-label">
-            <div className="password-input-container">
-            <LockIcon className="icon"/> 
+          <label className="form-labels">
+            <div className="password-input-containers">
+              <LockIcon className="icons" />
               <input
-                className="form-input"
+                className="form-inputs"
                 type={showPassword ? 'text' : 'password'}
                 value={newPassword}
                 onChange={(e) => {
                   setNewPassword(e.target.value);
                   setPasswordError('');
                 }}
-                placeholder="Password"
+                placeholder="Passwords"
                 onKeyPress={handleKeyPress}
-
               />
               <button
                 type="button"
@@ -181,26 +206,46 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
                 {showPassword ? 'Hide' : 'Show'}
               </button>
             </div>
-            <span className="error-message">{passwordError}</span>
+            <span className="error-messages">{passwordError}</span>
           </label>
           <br />
-          <br />
+          <div className="gender-selection">
+          <label className="gender-label" style={{ color: '#3498db', fontFamily: 'Arial' , fontSize: '15px'}}>Type</label>
+  <label className="gender-label">
+    <input
+      type="radio"
+      value="admin"
+      checked={type === 'admin'}
+      onChange={() => setGender('admin')}
+      className="radio-input"
+    />
+    Admin
+  </label>
+  <label className="gender-label">
+    <input
+      type="radio"
+      value="user"
+      checked={type === 'user'}
+      onChange={() => setGender('user')}
+      className="radio-input"
+    />
+    User
+  </label>
+</div>
 
-          <button className="form-button" type="button" onClick={handleRegister}>
+              <br/>
+          <button className="register-buttons" type="button" onClick={handleRegister}>
             Create Account
           </button>
+          {registrationSuccess && (
+ <div className="success-message-container">
+ <span className="success-message">Account successfully created!</span>
+</div>        )}
+          </div>
           <br />
-          <p className="or-text">OR</p>
-          <br />
-
-          <button className="form1-button" type="button" onClick={onBackButtonClick}>
-            Back to Login
-          </button>
         </form>
-      )}
     </div>
   );
 };
-
 
 export default RegistrationForm;

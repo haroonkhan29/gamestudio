@@ -15,6 +15,8 @@ import BankImage from '../Images/BankImage/bank.png';
 import AssignmentviewImage from '../Images/AssignmentviewImage/assignmentview.png'; 
 import AssignementImage from '../Images/AssignementImage/assignment.png'; 
 import recordImage from '../Images/recordImage/employee.png'; 
+import RegisterImage from '../Images/RegisterImage/Register.png'; 
+import AmdminImage from '../Images/AdminImage/admin.png'; 
 import LogoutImage from '../Images/LogoutImage/logout.png'; 
 import { cyan, lightBlue , orange, pink , indigo ,blue, amber, yellow, green ,purple , red} from "@mui/material/colors";
 
@@ -120,6 +122,21 @@ export const ListItemsData = [
     link: "record",
     icon: <img src={recordImage} alt="Employee" style={{ width: 30, height: 30 }} />,
     color:  amber,
+  },
+ 
+  {
+    name: "Admin",
+    link: "registrationForm",
+    icon: <img src={AmdminImage} alt="Logout" style={{ width: 30, height: 30 }} />,
+    color:  blue,
+
+  },
+  {
+    name: "Registration",
+    link: "data",
+    icon: <img src={RegisterImage} alt="Logout" style={{ width: 30, height: 30 }} />,
+    color:  blue,
+
   },
   {
     name: "Logout",

@@ -4,8 +4,8 @@ import { Grid } from "@mui/material";
 
 const BigCard = ({ items }) => {
   const firstRowItems = items.slice(0, 4);
-  const secondRowItems = items.slice(4, 11);
-  const thirdRowItems = items.slice(11);
+  const secondRowItems = items.slice(4, 12);
+  const thirdRowItems = items.slice(12);
 
   return (
     <div style={{ backgroundColor: "white", padding: "10px", borderRadius: "20px", width: "100%" }}>

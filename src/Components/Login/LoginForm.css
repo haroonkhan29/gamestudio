@@ -92,6 +92,17 @@
   margin-bottom: 12px;
   align-items: center;
 }
+.toggle-password-buttons {
+  position: absolute;
+  left: 400px;
+  top: 40%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 15px;
+}
 
 .remember-password {
   display: inline-block;
@@ -103,10 +114,10 @@
   margin-right: 8px;
   
 }
-.password-input-container .toggle-password-button{
+.password-input-container .toggle-password-buttons{
   color: #000000;
 }
-.password-input-container .toggle-password-button:hover {
+.password-input-container .toggle-password-buttons:hover {
   background: transparent; 
 }
 .remember-forgot-container .forgot-password {

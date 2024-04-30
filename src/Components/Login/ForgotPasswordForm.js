@@ -60,7 +60,7 @@ const ForgotPasswordForm = ({ onResetPassword, onBackToLogin }) => {
 
   return (
     <div>
-      <h2 className="form-title1">Forgot Password</h2>
+      {/* <h2 className="form-title1">Forgot Password</h2> */}
       <form>
         <label className="form-label">
         <AlternateEmailIcon  className="icon2" />      
@@ -88,15 +88,15 @@ const ForgotPasswordForm = ({ onResetPassword, onBackToLogin }) => {
         </label>
         
         <br />
-        <button className="form-button" type="button" onClick={handleResetPassword}>
+        {/* <button className="form-button" type="button" onClick={handleResetPassword}>
           Reset Password
-        </button>
+        </button> */}
         <br />
-        <p className="or-text">OR</p>
+        {/* <p className="or-text">OR</p> */}
         <br />
-        <button className="form1-button" type="button" onClick={onBackToLogin}>
+        {/* <button className="form1-button" type="button" onClick={onBackToLogin}>
           Back to Login
-        </button>
+        </button> */}
       </form>
     </div>
   );
