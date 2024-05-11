@@ -43,7 +43,7 @@ const DailyAssignment = () => {
     //   .then((data) => setDeveloperList(data))
     //   .catch((error) => console.error("Error fetching developers:", error));
 
-    fetch("http://35.184.241.89:3000/project/getAll")
+    fetch("http://localhost:8080/project/getAll")
     .then((response) => response.json())
     .then((data) => {
       // Sort the project list in ascending order based on the project name
@@ -82,7 +82,7 @@ const DailyAssignment = () => {
   };
   const deleteDeveloper = async (developerId) => {
     try {
-      await fetch(`http://35.184.241.89:3000/developer/${developerId}`, {
+      await fetch(`http://localhost:8080/developer/${developerId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const DailyAssignment = () => {
 
   const deleteProject = async (projectId) => {
     try {
-      await fetch(`http://35.184.241.89:3000/project/${projectId}`, {
+      await fetch(`http://localhost:8080/project/${projectId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -112,7 +112,7 @@ const DailyAssignment = () => {
     e.preventDefault();
 
     try {
-      await fetch("http://35.184.241.89:3000/developer/create", {
+      await fetch("http://localhost:8080/developer/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +120,7 @@ const DailyAssignment = () => {
         body: JSON.stringify({ name: formData.developer }),
       });
 
-      await fetch("http://35.184.241.89:3000/project/create", {
+      await fetch("http://localhost:8080/project/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,7 +128,7 @@ const DailyAssignment = () => {
         body: JSON.stringify({ name: formData.project }),
       });
 
-      const response = await fetch("http://35.184.241.89:3000/dailyAssignment/create", {
+      const response = await fetch("http://localhost:8080/dailyAssignment/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -217,7 +217,7 @@ const DailyAssignment = () => {
 
         <br/>
               <div className="form-row">
-              <label className="status-label">Accounts</label>
+              <label className="status-label">Studio</label>
               <FormControlLabel
              control={
             <AndriodIconComponent

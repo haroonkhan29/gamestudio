@@ -24,7 +24,7 @@ const EditForm = ({ record, onSave, onCancel, date, deadline }) => {
   const [projectList, setProjectList] = useState(initialProjectList);
 
   useEffect(() => {
-  fetch("http://35.184.241.89:3000/project/getAll")
+  fetch("http://localhost:8080/project/getAll")
   .then((response) => response.json())
   .then((data) => setProjectList(data))
   .catch((error) => console.error("Error fetching projects:", error));
@@ -49,7 +49,7 @@ const EditForm = ({ record, onSave, onCancel, date, deadline }) => {
   };
   const updateApiData = async () => {
     try {
-      const response = await fetch(`http://35.184.241.89:3000/dailyAssignment/${editedRecord._id}`, {
+      const response = await fetch(`http://localhost:8080/dailyAssignment/${editedRecord._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -109,7 +109,7 @@ const EditForm = ({ record, onSave, onCancel, date, deadline }) => {
             </div>
             <div className="form-row">
             <div className="input-group1">
-            <label className="status-label">Accounts</label>
+            <label className="status-label">Studio</label>
             <FormControlLabel
            control={
           <AndriodIconComponent

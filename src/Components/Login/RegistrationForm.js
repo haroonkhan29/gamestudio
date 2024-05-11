@@ -94,6 +94,8 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
           pauseOnHover: true,
           draggable: true,
         });
+
+        
       } else {
         const errorData = await response.json();
         console.error('Error during registration:', errorData);

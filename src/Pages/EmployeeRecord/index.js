@@ -158,13 +158,13 @@ const EmployeeTable = () => {
                 <th>Leaving Data</th>
                 <th>Department</th>
                 <th>Job title</th>
-                <th>Account Number</th>
-                <th>Salary</th>
-                <th>Contact</th>
-                <th>City</th>
-                <th>Postal Code</th>
-                <th>CNIC</th>
-                <th>Gender</th>
+                {/* <th>Account Number</th> */}
+                {/* <th>Salary</th> */}
+                {/* <th>Contact</th> */}
+                {/* <th>City</th> */}
+                {/* <th>Postal Code</th> */}
+                {/* <th>CNIC</th> */}
+                {/* <th>Gender</th> */}
               </tr>
             </thead>
             <tbody>
@@ -220,16 +220,16 @@ const EmployeeTable = () => {
                   <td onClick={(event) => handleProfilePicClick(event, index)}>{data.leavingDate}</td>
                   <td onClick={(event) => handleProfilePicClick(event, index)}>{data.department}</td>
                   <td onClick={(event) => handleProfilePicClick(event, index)}>{data.tittle}</td>
-                  <td onClick={(event) => handleProfilePicClick(event, index)}>{data.account}</td>
-                  <td onClick={(event) => handleProfilePicClick(event, index)}>{data.salary}</td>
-                  <td onClick={(event) => handleProfilePicClick(event, index)}>{data.contact}</td>
-                  <td onClick={(event) => handleProfilePicClick(event, index)}>{data.addressCity}</td>
-                  <td onClick={(event) => handleProfilePicClick(event, index)}>{data.addressPostalCode}</td>
-                  <td onClick={(event) => handleProfilePicClick(event, index)}>
+                  {/* <td onClick={(event) => handleProfilePicClick(event, index)}>{data.account}</td> */}
+                  {/* <td onClick={(event) => handleProfilePicClick(event, index)}>{data.salary}</td> */}
+                  {/* <td onClick={(event) => handleProfilePicClick(event, index)}>{data.contact}</td> */}
+                  {/* <td onClick={(event) => handleProfilePicClick(event, index)}>{data.addressCity}</td> */}
+                  {/* <td onClick={(event) => handleProfilePicClick(event, index)}>{data.addressPostalCode}</td> */}
+                  {/* <td onClick={(event) => handleProfilePicClick(event, index)}>
                     {data.cnic.slice(0, 5)}-{data.cnic.slice(5, 12)}-
                     {data.cnic.slice(12, 13)}
-                  </td>
-                  <td onClick={(event) => handleProfilePicClick(event, index)}>{data.gender}</td>
+                  </td> */}
+                  {/* <td onClick={(event) => handleProfilePicClick(event, index)}>{data.gender}</td> */}
                 </tr>
               ))}
             </tbody>

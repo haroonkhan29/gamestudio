@@ -49,6 +49,8 @@ import ForgotPasswordForm from './ForgotPasswordForm';
       if (response.ok) {
         const data = await response.json();
         const token = data.token;
+
+     
         login();
       } else {
         const errorData = await response.json();

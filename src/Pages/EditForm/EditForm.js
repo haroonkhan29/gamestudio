@@ -40,7 +40,7 @@ const EditForm = ({ id, data, onSubmit, setIsEditing, currentProfilePicPath }) =
               }
               formData.append("data", JSON.stringify(editedData));
 
-              const response = await fetch(`http://35.184.241.89:3000/employee/${id}`, {
+              const response = await fetch(`http://localhost:8080/employee/${id}`, {
                 method: 'PUT',
                 body: formData,
               });
@@ -82,7 +82,7 @@ const EditForm = ({ id, data, onSubmit, setIsEditing, currentProfilePicPath }) =
           <div className="current-profile-pic">
              {profilePicFile && (
               <img
-              src={profilePicFile ? URL.createObjectURL(profilePicFile) : `http://35.184.241.89:3000/${currentProfilePicPath}`}              
+              src={profilePicFile ? URL.createObjectURL(profilePicFile) : `http://localhost:8080/${currentProfilePicPath}`}              
                 alt="New Profile Pic"
                 className="profile-pic"
               />

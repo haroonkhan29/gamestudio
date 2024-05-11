@@ -34,7 +34,7 @@ body {
 }
 
 .custom-table thead th {
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   background-color: #5d7b9c; 
   z-index: 1;

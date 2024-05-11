@@ -18,8 +18,8 @@ import AssignmentView from "./Pages/DownloadView/DownloadView";
 import CompainCost from "./Pages/CompainCost/CompainCost";
 import EmployeeRecord from "./Pages/EmployeeRecord";
 import PettyCashList from "./Pages/PettyCashList/PettyCashList";
-import Login from "./Components/Login/Login";
 import RegistrationTable from "./Components/Login/RegistrationTable";
+import Login from "./Components/Login/Login";
 import Logout from "./Components/Login/Logout";
 import EditForm from "./Pages/EditForm/EditForm";
 import CustomAlert from "./Components/Login/CustomAlert";
@@ -68,8 +68,8 @@ const App = () => {
               <Route path="record" element={<EmployeeRecord />} />
               <Route path="edit" element={<EditForm />} />
               <Route path="registrationForm" element={<RegistrationForm />} />
-              <Route path="login" element={<Login />} />
               <Route path="data" element={<RegistrationTable />} />
+              <Route path="login" element={<Login />} />
               <Route path="custom" element={<CustomAlert />} />
               <Route path="logout" element={<Logout />} />
               <Route path="mycomponent" element={<MyComponent />} />

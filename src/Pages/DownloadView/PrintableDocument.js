@@ -7,7 +7,7 @@ const PrintableDocument = ({ record, onClose }) => {
       <h2>View Record</h2>
       <div>
         <p>Date: {record.date}</p>
-        <p>Accounts: {record.account}</p>
+        <p>Studio: {record.account}</p>
         <p>Project: {record.project}</p>
         <p>Developer: {record.developer}</p>
         <p>Status: {record.status}</p>

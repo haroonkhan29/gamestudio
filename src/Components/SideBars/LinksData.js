@@ -35,7 +35,7 @@ export const ListItemsData = [
   },
  
   {
-    name: "Revenue",
+    name: "App Revenue",
     link: "revenue",
     icon: <img src={ RevenueImage} alt="Revenue" style={{ width: 30, height: 30 }} />,
     color: green, 
@@ -65,8 +65,8 @@ export const ListItemsData = [
     link: "admobscreen",
     icon: <img src={AdscreenImage} alt="AdMob Screens" style={{ width: 30, height: 30 }} />,
   },
-  {
-    name: "AdMob",
+  { 
+    name: "AdMob View",
     link: "admobview",
     icon: <img src={AdmobImage} alt="AdMob View" style={{ width: 30, height: 30 }} />,
     color:  blue,
