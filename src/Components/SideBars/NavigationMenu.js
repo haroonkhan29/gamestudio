@@ -9,7 +9,7 @@ import { Stack, Typography, Box, Button } from "@mui/material";
 import { NavLink, Link } from "react-router-dom"; 
 import LogoutIcon from "@mui/icons-material/Logout";
 import { ListItemsData } from "./LinksData";
-import logo from "./images/logo2.PNG";
+import logo from "./images/logo.jpeg";
 import "./sidebar.css";
 
 const NavigationMenu = ({ drawerWidth, open }) => {
@@ -43,7 +43,7 @@ const NavigationMenu = ({ drawerWidth, open }) => {
               width: "100%",
               height: "100%",
               marginRight: "10px",
-              marginTop: "8px",
+              marginTop: "0px",
             }}
           />
         </Stack>
