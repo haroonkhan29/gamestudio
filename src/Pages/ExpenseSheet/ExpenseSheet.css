@@ -1,116 +1,128 @@
 .expense-sheet-container {
-    margin: 20px;
-  }
-  .headere  h1
-  {
-    margin:  0 auto;
-    font-weight: bold;
-    border: 2px solid #939393; 
-    background-color: #ffffff;
-    box-sizing: border-box;
-    max-width: 17%; 
-    padding: 7px; 
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 2%;
-  }
-  .customs-table thead th{
-    position: sticky;
-    top: 0;
-    background-color: #5d7b9c; 
-    z-index: 1;
-  }
-  th, td {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-  }
-  
-  .month-header th {
-    background-color: #5d7b9c; 
-    color: #ffffff;
-  }
-  .month-header .expense-header
-  {
-    background-color: #5d7b9c; 
-    color: #ffffff
-  }
-  .month-header .year-header
-  {
-    background-color: rgb(255, 252, 68); 
-    color: #000000;
-  }
-  .bold-red-row td {
-    font-weight: 500;
-    color:  rgb(2, 131, 211);
-  }
-  
- .bold-cell {
-    font-weight: bold;
-    background-color: #5d7b9c; 
-    color: #ffffff;
+  margin: 20px;
+}
+.styled-tabl th
+{
+  background-color: pink;
+  color: black;
+}
+.headere  h1
+{
+  margin:  0 auto;
+  font-weight: bold;
+  border: 2px solid #939393; 
+  background-color: #ffffff;
+  box-sizing: border-box;
+  max-width: 17%; 
+  padding: 7px; 
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 2%;
+}
+.customs-table thead th{
+  position: sticky;
+  top: 0;
+  background-color: #5d7b9c; 
+  z-index: 1;
+}
+.styled-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #5d7b9c; 
+  z-index: 1;
+}
+th, td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
 
-  }
-  
-  .bold-category {
-    font-weight: bold;
-    background-color: pink;
-    color:  rgb(0, 0, 0);
-  }
+.month-header th {
+  background-color: #5d7b9c; 
+  color: #ffffff;
+}
+.month-header .expense-header
+{
+  background-color: #5d7b9c; 
+  color: #ffffff
+}
+.month-header .year-header
+{
+  background-color: rgb(255, 252, 68); 
+  color: #000000;
+  font-weight: bold;
+}
+.bold-red-row td {
+  font-weight: 500;
+  color:  rgb(2, 131, 211);
+}
 
-  
-  .total-cell {
-    font-weight: bold;
-    
-  }
-  .total-value {
-    font-weight: bold;
-    background-color: rgb(255, 252, 68); 
-    color: #000000;
-    font-size: 15px;
+.bold-cell {
+  font-weight: bold;
+  background-color: #5d7b9c; 
+  color: #ffffff;
 
-  }
-  .total-year {
-    background-color: #5d7b9c; 
-    color: white; 
-    font-size: 15px;
-  }
-  .save-button-container {
-    float: right;
-    margin-bottom: 1%;
-  }
+}
+
+.bold-category {
+  font-weight: bold;
+  background-color: pink;
+  color:  rgb(0, 0, 0);
+}
+
+
+.total-cell {
+  font-weight: bold;
   
-  .save-button {
-    background-color: #2766a8;
-  }
-  .pink-background {
-    background-color: pink;
-    color: #000000;
-    font-weight: 500;
-  }
-  .subtotal-cell
-  {
-    color: rgb(255, 255, 255);
-    background: rgb(36, 163, 115);
-    font-weight: bold;
-  }
- .green-background
- {
+}
+.total-value {
+  font-weight: bold;
+  background-color: rgb(255, 252, 68); 
+  color: #000000;
+  font-size: 15px;
+
+}
+.total-year {
+  background-color: #5d7b9c; 
+  color: white; 
+  font-size: 15px;
+}
+.save-button-container {
+  float: right;
+  margin-bottom: 1%;
+}
+
+.save-button {
+  background-color: #2766a8;
+}
+.pink-background {
+  background-color: pink;
+  color: #000000;
+  font-weight: 500;
+}
+.subtotal-cell
+{
   color: rgb(255, 255, 255);
   background: rgb(36, 163, 115);
   font-weight: bold;
+}
+.green-background
+{
+color: rgb(255, 255, 255);
+background: rgb(36, 163, 115);
+font-weight: bold;
 
 }
 .subtotal-value
 {
-  background-color: #ffffff;
-  color: #000000;
+background-color: #f0ff18;
+color: #000000;
 }
 .total-cell
 {
-  background-color: pink;
-  font-weight: bold;
+background-color: pink;
+font-weight: bold;
 
 }

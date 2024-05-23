@@ -32,7 +32,6 @@ import ForgotPasswordForm from './ForgotPasswordForm';
       handleLogin();
     }
   };
-
   const handleLogin = async () => {
     try {
       const response = await fetch('http://localhost:8080/user/login', {
@@ -45,13 +44,12 @@ import ForgotPasswordForm from './ForgotPasswordForm';
           password,
         }),
       });
-
+  
       if (response.ok) {
         const data = await response.json();
         const token = data.token;
-
-     
-        login();
+  
+        login(data.user.type);
       } else {
         const errorData = await response.json();
         console.error('Error during login:', errorData);
@@ -68,6 +66,7 @@ import ForgotPasswordForm from './ForgotPasswordForm';
       alert('An unexpected error occurred. Please try again.');
     }
   };
+  
 
   const handleRegisterClick = () => {
     setShowRegistration(true);

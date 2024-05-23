@@ -81,7 +81,7 @@ const Progress = () => {
     console.log("Progress Form submitted:", progressFormData);
     try {
       const response = await axios.post(
-        "http://35.184.241.89:3000/progress",
+        "http://localhost:8080/progress",
         progressFormData
       );
       console.log(response.data);

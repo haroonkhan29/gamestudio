@@ -30,7 +30,7 @@ const PettyCashList = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://35.184.241.89:3000/pettycash');
+      const response = await fetch('http://localhost:8080/pettycash');
       const data = await response.json();
       let filteredData = data;
       if (selectedDate) {
@@ -88,7 +88,7 @@ const PettyCashList = () => {
         formData.append('image', imageChanges[id]);
       }
 
-      const response = await fetch(`http://35.184.241.89:3000/pettycash/${id}`, {
+      const response = await fetch(`http://localhost:8080/pettycash/${id}`, {
         method: 'PUT',
         body: formData,
       });
@@ -106,7 +106,7 @@ const PettyCashList = () => {
 
   const handleDeleteClick = async (id) => {
     try {
-      const response = await fetch(`http://35.184.241.89:3000/pettycash/${id}`, {
+      const response = await fetch(`http://localhost:8080/pettycash/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
@@ -187,10 +187,10 @@ const PettyCashList = () => {
                   ) : (
                     item.image && (
                       <img
-                        src={`http://35.184.241.89:3000/${item.image}`}
+                        src={`http://localhost:8080/${item.image}`}
                         alt="Expense Receipt"
                         style={{ maxWidth: '100px' }}
-                        onClick={() => openFullScreenImage(`http://35.184.241.89:3000/${item.image}`)}
+                        onClick={() => openFullScreenImage(`http://localhost:8080/${item.image}`)}
                       />
                     )
                   )}
@@ -209,7 +209,7 @@ const PettyCashList = () => {
                   </button>
                 </td>
                 <td className='button-container'>
-                <button onClick={() => openFullScreenImage(`http://35.184.241.89:3000/${item.image}`)}>View</button>
+                <button onClick={() => openFullScreenImage(`http://localhost:8080/${item.image}`)}>View</button>
                 </td>
               </tr>
             ))}

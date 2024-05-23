@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { blueGrey } from "@mui/material/colors";
 
-const Banner = () => {
+const Banner = ({ userType }) => {
   const headerStyle = {
     position: "absolute",
     top: 0,
@@ -28,14 +28,19 @@ const Banner = () => {
 
   return (
     <div>
+    
       {/* <Box style={headerStyle}> */}
       <Typography variant="h4" style={{ fontSize: "18px", fontWeight: "bold" ,   marginTop: "1%"}}>Dashboard
+
+{/* </div> */}
         </Typography>
+        {/* {userType === 'admin' ? 'Welcome Admin' : 'Welcome User'} */}
+
       {/* </Box> */}
       <Box style={contentStyle}>
         {/* Content goes here */}
         <Typography variant="h4" fontWeight={500}>
-          {/* Your Content Title */}
+      
         </Typography>
         <Typography
           variant="body1"

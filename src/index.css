@@ -116,5 +116,24 @@ table {
     transform: none;
   }
 }
+.alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
 
+.alert.admin {
+  background-color: #ffd700; 
+}
+
+.alert.user {
+  background-color: #4caf50; 
+}
 

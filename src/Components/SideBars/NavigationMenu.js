@@ -5,15 +5,19 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Stack, Typography, Box, Button } from "@mui/material";
-import { NavLink, Link } from "react-router-dom"; 
+import { Stack, Typography, Box } from "@mui/material";
+import { NavLink } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { ListItemsData } from "./LinksData";
 import logo from "./images/logo.jpeg";
 import "./sidebar.css";
+import { useAuth } from "../../AuthContext";
 
 const NavigationMenu = ({ drawerWidth, open }) => {
+  const { userType } = useAuth();
+
   return (
+    
     <Drawer
       sx={{
         width: drawerWidth,
@@ -63,17 +67,24 @@ const NavigationMenu = ({ drawerWidth, open }) => {
       <List>
         {ListItemsData.map((item, index) => (
           <ListItem key={index}>
-            <NavLink
-              to={item.link}
-              className={({ isActive }) =>
-                `${isActive ? "activeNavLink" : "inActiveNavLink"} navlink`
-              }
-            >
-              <ListItemButton>
+            {['Dashboard' , 'Attendance', 'AdMob Screens' , 'AdMob View' , 'Apps Progress' , 'Logout'].includes(item.name) || userType === 'admin' ? ( 
+              <NavLink
+                to={item.link}
+                className={({ isActive }) =>
+                  `${isActive ? "activeNavLink" : "inActiveNavLink"} navlink`
+                }
+              >
+                <ListItemButton>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.name} />
+                </ListItemButton>
+              </NavLink>
+            ) : (
+              <ListItemButton disabled>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.name} />
               </ListItemButton>
-            </NavLink>
+            )}
           </ListItem>
         ))}
       </List>
@@ -94,11 +105,6 @@ const NavigationMenu = ({ drawerWidth, open }) => {
           <LogoutIcon />
         </div>
       </div>
-      <Link to="/next">
-        {/* <Button variant="contained" color="primary" style={{ marginTop: "10px" }}>
-          Next
-        </Button> */}
-      </Link>
     </Drawer>
   );
 };

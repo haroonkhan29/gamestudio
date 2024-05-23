@@ -3,6 +3,7 @@ import DashboardImage from '../Images/DashboardImage/dashboard.jpeg';
 import AttendanceImage from '../Images/AttendanceImage/attendance.png'; 
 import RevenueImage from '../Images/RevenueImage/revenue.png'; 
 import ExpenseImage from '../Images/ExpenseImage/Expense.png'; 
+import SheetImage from '../Images/SheetImage/sheetexpense.png'; 
 import pettyImage from '../Images/pettyImage/cash.png'; 
 import pettycashImage from '../Images/pettycashImage/pettyview.png'; 
 import AdmobImage from '../Images/AdmobImage/admob.png'; 
@@ -41,13 +42,27 @@ export const ListItemsData = [
     color: green, 
 
   },
-  {
+   {
     name: "Expense",
-    link: "expense",
+    link: "expenseform",
+    icon: <img src={SheetImage} alt="Expense" style={{ width: 30, height: 30 }} />,
+    color: yellow,
+
+  },
+  {
+    name: "Expense View",
+    link: "expenseformview",
     icon: <img src={ExpenseImage} alt="Expense" style={{ width: 30, height: 30 }} />,
     color: purple,
 
   },
+  // {
+  //   name: "Expense",
+  //   link: "expense",
+  //   icon: <img src={ExpenseImage} alt="Expense" style={{ width: 30, height: 30 }} />,
+  //   color: purple,
+
+  // },
   {
     name: "Petty Cash",
     link: "pettycash",

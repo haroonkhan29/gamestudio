@@ -11,7 +11,7 @@ const AdMobEditForm = ({ selectedAdMob, onClose, onUpdate }) => {
   const [editedProfilePic, setEditedProfilePic] = useState(null);
   const [imagePreview, setImagePreview] = useState(
     selectedAdMob.profilePic
-    ? `http://35.184.241.89:3000/uploads/${selectedAdMob.profilePic}`
+    ? `http://localhost:8080/uploads/${selectedAdMob.profilePic}`
     : null
 );
   const handleSave = async () => {
@@ -23,7 +23,7 @@ const AdMobEditForm = ({ selectedAdMob, onClose, onUpdate }) => {
         formData.append("profilePic", editedProfilePic);
       }
       const response = await axios.put(
-        `http://35.184.241.89:3000/admob/${selectedAdMob._id}`,
+        `http://localhost:8080/admob/${selectedAdMob._id}`,
         formData,
         {
           headers: {

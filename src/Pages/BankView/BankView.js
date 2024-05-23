@@ -52,7 +52,7 @@ const BankView = () => {
     const fetchBankDetails = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://35.184.241.89:3000/bank");
+        const response = await fetch("http://localhost:8080/bank");
 
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -91,7 +91,7 @@ const BankView = () => {
     const recordToDelete = bankDetails[indexOfFirstRecord + index];
 
     try {
-      const response = await fetch(`http://35.184.241.89:3000/bank/${recordToDelete._id}`, {
+      const response = await fetch(`http://localhost:8080/bank/${recordToDelete._id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ const FETCH_INTERVAL = 1000;
 const Revenue = () => {
   const [data, setData] = useState([]);
   const [activeButton, setActiveButton] = useState("Appstark");
-  const [startDate, setStartDate] = useState(null); // Initialize with null
+  const [startDate, setStartDate] = useState(null); 
   const [endDate, setEndDate] = useState(new Date());
   const fetchData = async (range, startDate, endDate) => {
     try {
@@ -80,6 +80,16 @@ const Revenue = () => {
       "first-row": [],
       "eighth-row": [],
     },
+    "Adnan Haider iOS (DApps)": {
+      "first-row": [],
+      "eighth-row": [],
+    },
+    "Kamran Haider iOS (Appstark)": {
+      "first-row": [],
+      "eighth-row": [],
+    },
+   
+    
   };
 
   const getRowClass = (activeButton, rowIndex) => {
@@ -94,8 +104,13 @@ const Revenue = () => {
     } else if (activeButton === "Actionshore") {
       isFirstRow = rowIndex % 4 === 0;
       isEighthRow = (rowIndex - 3) % 4 === 0;
+    }else if (activeButton === "Adnan Haider iOS (DApps)") {
+      isFirstRow = rowIndex % 4 === 0;
+      isEighthRow = (rowIndex - 3) % 4 === 0;
+    }else if (activeButton === "Kamran Haider iOS (Appstark)") {
+      isFirstRow = rowIndex % 4 === 0;
+      isEighthRow = (rowIndex - 3) % 4 === 0;
     }
-
     if (isFirstRow) {
       rowIndices[activeButton]["first-row"].push(rowIndex);
       return "first-row";
@@ -110,7 +125,7 @@ const Revenue = () => {
   return (
     <div className="">
       <div className="header">
-        <h1>Revenue</h1>
+        <h1>App Revenue</h1>
       </div>
       <div className="sidebar">
         <button
@@ -136,6 +151,22 @@ const Revenue = () => {
           onClick={() => handleButtonClick("Actionshore")}
         >
           Actionshore
+        </button>
+        <button
+          className={`btn ${
+            activeButton === "Adnan Haider iOS (DApps)" ? "btn-primary" : "btn-secondary"
+          }`}
+          onClick={() => handleButtonClick("Adnan Haider iOS (DApps)")}
+        >
+         Adnan Haider iOS (DApps)
+        </button>
+        <button
+          className={`btn ${
+            activeButton === "Kamran Haider iOS (Appstark)" ? "btn-primary" : "btn-secondary"
+          }`}
+          onClick={() => handleButtonClick("Kamran Haider iOS (Appstark)")}
+        >
+         Kamran Haider iOS (Appstark)
         </button>
       </div>
       <div>

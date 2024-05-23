@@ -51,8 +51,8 @@ const BankDetail = () => {
     console.log("Form submitted:", formData);
 
     try {
-      console.log("Before fetch:", "http://35.184.241.89:3000/bank");
-      const response = await fetch("http://35.184.241.89:3000/bank", {
+      console.log("Before fetch:", "http://localhost:8080/bank");
+      const response = await fetch("http://localhost:8080/bank", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

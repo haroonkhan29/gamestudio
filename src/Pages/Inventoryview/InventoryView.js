@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { CircularProgress } from "@mui/material";
 import { useProgressContext } from "../../ProgressContext";
 import axios from "axios";
+// import * as XLSX from "xlsx";
 
 const InventoryView = () => {
   const { progressDetails, setProgressDetails } = useProgressContext();
@@ -35,6 +36,12 @@ const InventoryView = () => {
     }, 3000);
     fetchAllProgress(); 
   };
+  // const handleExport = () => {
+  //   const workbook = XLSX.utils.book_new();
+  //   const sheet = XLSX.utils.json_to_sheet(googleProgress);
+  //   XLSX.utils.book_append_sheet(workbook, sheet, "Inventory Data");
+  //   XLSX.writeFile(workbook, "inventory_data.xlsx");
+  // };
 
   if (loading) return <CircularProgress />;
   if (error) return <p style={{ fontWeight: "bold", color: "red" }}>{error}</p>;
@@ -49,6 +56,8 @@ const InventoryView = () => {
 
       <div>
         <h2> Mobile Devices </h2>
+        {/* <button onClick={handleExport}>Export</button> */}
+
         <DataTable progressData={googleProgress} onSaveSuccess={handleSaveSuccess} />
       </div>
 
@@ -68,7 +77,7 @@ const DataTable = ({ progressData, onSaveSuccess, hideTotalUserLoss }) => {
     if (progressData[index]) {
       const progressId = progressData[index]._id;
       try {
-        await axios.put(`http://localhost:8080/inventory/${progressId}`, editedData[index]);
+        await axios.put(`http://localhost:8080/inventory/${progressId}`, editedData[index] || progressData[index]);
         onSaveSuccess();
       } catch (error) {
         console.error("Error updating progress:", error);
@@ -87,37 +96,20 @@ const DataTable = ({ progressData, onSaveSuccess, hideTotalUserLoss }) => {
         [key]: value,
       },
     }));
-    handleSave(id);
   };
 
   const handleKeyDown = (e, rowIndex, colIndex) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      const nextColIndex = colIndex === 9 ? 0 : colIndex + 0; 
-      if (nextColIndex < 9) { 
+      const nextColIndex = colIndex === 9 ? 0 : colIndex + 1;
+      if (nextColIndex < 9) {
         const nextInput = inputRefs.current[rowIndex][nextColIndex];
         if (nextInput) {
           nextInput.focus();
         }
       }
-    } else if (e.key === "Backspace") {
-      const currentInput = e.target;
-      const { value, selectionStart } = currentInput;
-      if (selectionStart === 0 && value === "") {
-        const prevColIndex = colIndex === 0 ? 9 : colIndex - 1;
-        const prevInput = inputRefs.current[rowIndex][prevColIndex];
-        if (prevInput) {
-          prevInput.focus();
-          const prevInputValue = prevInput.value;
-          prevInput.value = prevInputValue.slice(0, -1);
-          const event = new Event("change", { bubbles: true });
-          prevInput.dispatchEvent(event);
-          handleSave(rowIndex);
-        }
-      }
     }
   };
-
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -290,7 +282,7 @@ const DataTable = ({ progressData, onSaveSuccess, hideTotalUserLoss }) => {
      {rowIndex === 70 && (
        <>
        <tr key={`headerRow${rowIndex}`} style={{ color: "#5d7b9c", backgroundColor: "transparent" }}>
-               <th style={{ color: "black", backgroundColor: "#bdddff" ,fontSize: "14px"}}>Internet Nayatel Device</th>
+               <th style={{ color: "black", backgroundColor: "#bdddff" }}>Internet Device</th>
              </tr>
       <tr key={`headerRow${rowIndex}`} style={{ backgroundColor: "#5d7b9c", color: "#fff" }}>
         <th>S.No</th>
@@ -355,14 +347,25 @@ const DataTable = ({ progressData, onSaveSuccess, hideTotalUserLoss }) => {
                 />
               </td>
               <td>
-                <input
-                  ref={(el) => (inputRefs.current[rowIndex] = [...(inputRefs.current[rowIndex] || []), el])}
-                  value={editedData[rowIndex]?.iMEI || detail.iMEI || ""}
-                  onChange={(e) => handleInputChange(e, "iMEI", rowIndex)}
-                  onBlur={() => handleSave(rowIndex)}
-                  onKeyDown={(e) => handleKeyDown(e, rowIndex, 6)}
-                />
-              </td>
+  <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <input
+      style={{ marginBottom: '1px' }}
+      value={editedData[rowIndex]?.iMEI || detail.iMEI || ""}
+      onChange={(e) => handleInputChange(e, "iMEI", rowIndex)}
+      onBlur={() => handleSave(rowIndex)}
+      onKeyDown={(e) => handleKeyDown(e, rowIndex, 5)}
+    />
+{rowIndex >= 0 && rowIndex <= 16 && (
+      <input
+        value={editedData[rowIndex]?.secondIMEI || detail.secondIMEI || ""}
+        onChange={(e) => handleInputChange(e, "secondIMEI", rowIndex)}
+        onBlur={() => handleSave(rowIndex)}
+        onKeyDown={(e) => handleKeyDown(e, rowIndex, 5)}
+      />
+    )}
+  </div>
+</td>
+
               {!hideTotalUserLoss && (
                 <td>
                   <input

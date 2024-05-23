@@ -2,10 +2,10 @@ import React from "react";
 import Card from "../Card/Card";
 import { Grid } from "@mui/material";
 
-const BigCard = ({ items }) => {
+const BigCard = ({ items, disabled }) => {
   const firstRowItems = items.slice(0, 4);
-  const secondRowItems = items.slice(4, 12);
-  const thirdRowItems = items.slice(12);
+  const secondRowItems = items.slice(4, 13);
+  const thirdRowItems = items.slice(13);
 
   return (
     <div style={{ backgroundColor: "white", padding: "10px", borderRadius: "20px", width: "100%" }}>
@@ -13,14 +13,14 @@ const BigCard = ({ items }) => {
         <Grid container item xs={12} spacing={2}>
           {firstRowItems.map((item, index) => (
             <Grid item key={index} xs={12} sm={6} md={3}>
-              <Card item={item} />
+              <Card item={item} disabled={disabled} />
             </Grid>
           ))}
         </Grid>
         <Grid container item xs={12} spacing={2}>
           {secondRowItems.map((item, index) => (
             <Grid item key={index} xs={12} sm={6} md={3}>
-              <Card item={item} />
+              <Card item={item} disabled={disabled} />
             </Grid>
           ))}
         </Grid>
@@ -29,7 +29,7 @@ const BigCard = ({ items }) => {
         <Grid container item xs={12} justifyContent="center">
           {thirdRowItems.map((item, index) => (
             <Grid item key={index} xs={12} sm={6} md={6}>
-              <Card item={item} />
+              <Card item={item} disabled={disabled} />
             </Grid>
           ))}
         </Grid>
