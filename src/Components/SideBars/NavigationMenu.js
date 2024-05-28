@@ -25,6 +25,8 @@ const NavigationMenu = ({ drawerWidth, open }) => {
         "& .MuiDrawer-paper": {
           width: drawerWidth,
           boxSizing: "border-box",
+          backgroundColor: "#342D27", 
+
         },
       }}
       variant="persistent"
@@ -67,7 +69,7 @@ const NavigationMenu = ({ drawerWidth, open }) => {
       <List>
         {ListItemsData.map((item, index) => (
           <ListItem key={index}>
-            {['Dashboard' , 'Attendance', 'AdMob Screens' , 'AdMob View' , 'Apps Progress' , 'Logout'].includes(item.name) || userType === 'admin' ? ( 
+            {['Dashboard' , 'Attendance', 'Daily Assignment' , 'Assignment' , 'Logout'].includes(item.name) || userType === 'admin' ? ( 
               <NavLink
                 to={item.link}
                 className={({ isActive }) =>
@@ -76,13 +78,13 @@ const NavigationMenu = ({ drawerWidth, open }) => {
               >
                 <ListItemButton>
                   <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.name} />
+                  <ListItemText primary={item.name} style={{ color: "#FFBE00" }} /> {/* Set text color to yellow */}
                 </ListItemButton>
               </NavLink>
             ) : (
               <ListItemButton disabled>
                 <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.name} />
+                <ListItemText primary={item.name} style={{ color: "#FFBE00" }} /> {/* Set text color to yellow */}
               </ListItemButton>
             )}
           </ListItem>

@@ -96,6 +96,8 @@ const DataTable = ({ progressData, onSaveSuccess, hideTotalUserLoss }) => {
         [key]: value,
       },
     }));
+    handleSave(id);
+
   };
 
   const handleKeyDown = (e, rowIndex, colIndex) => {

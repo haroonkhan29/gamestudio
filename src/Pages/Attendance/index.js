@@ -85,7 +85,7 @@ const Attendance = () => {
         <div>
         <h2>{formattedSelectedDate}</h2>
         <div className="update">
-        <IconButton className="update" onClick={handleUpdateButtonClick}>Update
+        <IconButton className="update" onClick={handleUpdateButtonClick}  style={{ color: "#FFBE00" }}>Update
           <UpdateIcon className="update-icon" />
          </IconButton>        
         </div>

@@ -8,7 +8,7 @@ const BigCard = ({ items, disabled }) => {
   const thirdRowItems = items.slice(13);
 
   return (
-    <div style={{ backgroundColor: "white", padding: "10px", borderRadius: "20px", width: "100%" }}>
+    <div style={{ backgroundColor: "#342D27", padding: "10px", borderRadius: "20px", width: "100%" }}>
       <Grid container spacing={2} justifyContent="center">
         <Grid container item xs={12} spacing={2}>
           {firstRowItems.map((item, index) => (

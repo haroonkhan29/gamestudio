@@ -177,6 +177,8 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
         [key]: value,
       },
     }));
+    handleSave(id);
+
   };
 
   const handleKeyDown = (e, rowIndex, colIndex) => {

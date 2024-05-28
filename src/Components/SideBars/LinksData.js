@@ -122,7 +122,7 @@ export const ListItemsData = [
         color: cyan, 
       },
   {
-    name: "Daily Assignment ",
+    name: "Daily Assignment",
     link: "assignment",
     icon: <img src={AssignementImage} alt="Daily Assignment" style={{ width: 30, height: 30 }} />,
   },

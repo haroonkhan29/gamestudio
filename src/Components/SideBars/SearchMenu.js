@@ -179,7 +179,7 @@ const SearchMenu = ({ drawerWidth, open }) => {
       sx={{
         width: conditionalDrawerWidth,
         padding: "10px 15px",
-        backgroundColor: "rgba(241, 245, 255, 1)",
+        backgroundColor: "#342D27",
         flexShrink: 0,
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
@@ -190,11 +190,11 @@ const SearchMenu = ({ drawerWidth, open }) => {
       anchor="right"
       open={open}
     >
-          {isEmployeePage && (
+          {/* {isEmployeePage && (
         <Button onClick={toggleForm}>
           {showEmployeeForm ? 'Hide' : 'Show'}
         </Button>
-      )}
+      )} */}
       {/* <Search style={{ border: "2px solid rgba(65, 36, 255, 1)" }}>
         <SearchIconWrapper>
           <SearchIcon style={{ color: "gray" }} />

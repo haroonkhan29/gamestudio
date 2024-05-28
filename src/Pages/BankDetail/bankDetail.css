@@ -6,7 +6,7 @@
 }
 .header {
   border: 2px solid #939393; 
-  background-color: #ffffff;
+  background-color:#342D27;
   box-sizing: border-box;
   max-width: 17%; 
   padding: 7px; 
@@ -20,6 +20,8 @@
   font-size: 25px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
+  color: #FFBE00;
+
 
 }
 .bank-detail-form {

@@ -1,6 +1,8 @@
 import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom";
+import "./Card.css"; 
+
 const Card = ({ item, disabled }) => {
   const iconSize = item.iconSize || { width: 65, height: 65, borderRadius: "30%" };
 
@@ -11,7 +13,7 @@ const Card = ({ item, disabled }) => {
       paddingTop={2}
       paddingLeft={2}
       paddingRight={2}
-      className="card"
+      className={`card ${disabled ? '' : 'hover-effect'}`}
       style={{
         pointerEvents: disabled ? 'none' : 'auto',
         opacity: disabled ? 0.5 : 1,

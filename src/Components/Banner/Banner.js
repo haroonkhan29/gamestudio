@@ -30,7 +30,7 @@ const Banner = ({ userType }) => {
     <div>
     
       {/* <Box style={headerStyle}> */}
-      <Typography variant="h4" style={{ fontSize: "18px", fontWeight: "bold" ,   marginTop: "1%"}}>Dashboard
+      <Typography variant="h4" style={{  color: "#FFBE00" , fontSize: "18px", fontWeight: "bold" ,   marginTop: "1%"}}>Dashboard
 
 {/* </div> */}
         </Typography>

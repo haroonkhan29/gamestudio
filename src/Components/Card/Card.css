@@ -1,0 +1,13 @@
+.card:hover {
+    background-color:#342D27;
+    color: white; 
+  }
+
+.card {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card.hover-effect:hover {
+  cursor: pointer;
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+}

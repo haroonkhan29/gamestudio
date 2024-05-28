@@ -55,7 +55,7 @@ const Index = () => {
         sx={{
           paddingTop: "25px",
           minHeight: "100vh",
-          backgroundColor: "rgba(241, 245, 255, 1)",
+          backgroundColor: "#342D27",
         }}
       >
         <Outlet />

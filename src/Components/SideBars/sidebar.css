@@ -21,6 +21,7 @@
     position: relative;
 }
 
+
 .activeNavLink::after{
     content: "";
     position: absolute;
