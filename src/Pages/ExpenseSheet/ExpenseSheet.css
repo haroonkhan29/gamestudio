@@ -3,8 +3,8 @@
 }
 .styled-tabl th
 {
-  background-color: pink;
-  color: black;
+  background-color:  #5d7b9c;
+  color: rgb(255, 255, 255);
 }
 .headere  h1
 {
@@ -28,6 +28,12 @@ table {
   z-index: 1;
 }
 .styled-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #5d7b9c; 
+  z-index: 1;
+}
+.styled-tabl thead {
   position: sticky;
   top: 0;
   background-color: #5d7b9c; 

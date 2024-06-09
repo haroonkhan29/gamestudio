@@ -51,10 +51,10 @@ const Expenseformview = () => {
   };
 
   const handleSaveSuccess = () => {
-    setSuccessMessage("Changes saved successfully!");
-    setTimeout(() => {
-      setSuccessMessage(null);
-    }, 3000);
+    // setSuccessMessage("successfully!");
+    // setTimeout(() => {
+      // setSuccessMessage(null);
+    // }, 500);
     fetchAllProgress(); 
   };
 
@@ -85,8 +85,8 @@ const Expenseformview = () => {
         <DataTable
           progressData={employeeProgress}
           onSaveSuccess={handleSaveSuccess}
-          header="Employee Cost"
-          onDelete={handleDelete} // Pass handleDelete function
+          header="Employees Costs" 
+          onDelete={handleDelete} 
           editedData={editedEmployeeData}
           setEditedData={setEditedEmployeeData}
         />
@@ -96,7 +96,7 @@ const Expenseformview = () => {
         <DataTable
           progressData={officeProgress}
           onSaveSuccess={handleSaveSuccess}
-          header="Office Costs"
+          header="Offices Costs"
           onDelete={handleDelete} // Pass handleDelete function
           editedData={editedOfficeData}
           setEditedData={setEditedOfficeData}
@@ -138,14 +138,15 @@ const Expenseformview = () => {
     </div>
   );
 };
+
 const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, setEditedData }) => {
   const [localEditedData, setLocalEditedData] = useState({});
-  const inputRefs = useRef([]);
-
-  useEffect(() => {
-    inputRefs.current = inputRefs.current.slice(0, progressData.length);
-  }, [progressData]);
-
+    const inputRefs = useRef([]);
+  
+    useEffect(() => {
+      inputRefs.current = inputRefs.current.slice(0, progressData.length);
+    }, [progressData]);
+  
   const handleSave = async (index) => {
     if (progressData[index]) {
       const progressId = progressData[index]._id;
@@ -163,75 +164,73 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
     try {
         await axios.delete(`http://localhost:8080/expenseform/${progressId}`);
         onSaveSuccess();
-        onDelete(progressId); // Update state to remove the deleted row
+        onDelete(progressId); 
     } catch (error) {
         console.error("Error deleting progress:", error);
     }
 };
-  const handleInputChange = (e, key, id) => {
-    const { value } = e.target;
-    setEditedData(prevState => ({
-      ...prevState,
-      [id]: {
-        ...prevState[id],
-        [key]: value,
-      },
-    }));
-    handleSave(id);
+const handleInputChange = (e, key, id) => {
+  const { value } = e.target;
+  setEditedData(prevState => ({
+    ...prevState,
+    [id]: {
+      ...prevState[id],
+      [key]: value,
+    },
+  }));
+  handleSave(id);
 
-  };
+};
 
-  const handleKeyDown = (e, rowIndex, colIndex) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      const nextColIndex = colIndex === 12 ? 1 : colIndex + 0;
-      if (nextColIndex < 12) {
-        const nextInput = inputRefs.current[rowIndex][nextColIndex];
-        if (nextInput) {
-          nextInput.focus();
-        }
+const handleKeyDown = (e, rowIndex, colIndex) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    const nextColIndex = colIndex === 12 ? 1 : colIndex + 0;
+    if (nextColIndex < 12) {
+      const nextInput = inputRefs.current[rowIndex][nextColIndex];
+      if (nextInput) {
+        nextInput.focus();
       }
     }
+  }
+};
+
+const calculateSubtotals = () => {
+  const subtotals = {
+    jan: 0, feb: 0, march: 0, april: 0, may: 0, june: 0,
+    july: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0,
   };
 
-  const calculateSubtotals = () => {
-    const subtotals = {
-      jan: 0, feb: 0, march: 0, april: 0, may: 0, june: 0,
-      july: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0,
-    };
+  progressData.forEach(detail => {
+    subtotals.jan += parseFloat(detail.jan) || 0;
+    subtotals.feb += parseFloat(detail.feb) || 0;
+    subtotals.march += parseFloat(detail.march) || 0;
+    subtotals.april += parseFloat(detail.april) || 0;
+    subtotals.may += parseFloat(detail.may) || 0;
+    subtotals.june += parseFloat(detail.june) || 0;
+    subtotals.july += parseFloat(detail.july) || 0;
+    subtotals.aug += parseFloat(detail.aug) || 0;
+    subtotals.sep += parseFloat(detail.sep) || 0;
+    subtotals.oct += parseFloat(detail.oct) || 0;
+    subtotals.nov += parseFloat(detail.nov) || 0;
+    subtotals.dec += parseFloat(detail.dec) || 0;
+  });
 
-    progressData.forEach(detail => {
-      subtotals.jan += parseFloat(detail.jan) || 0;
-      subtotals.feb += parseFloat(detail.feb) || 0;
-      subtotals.march += parseFloat(detail.march) || 0;
-      subtotals.april += parseFloat(detail.april) || 0;
-      subtotals.may += parseFloat(detail.may) || 0;
-      subtotals.june += parseFloat(detail.june) || 0;
-      subtotals.july += parseFloat(detail.july) || 0;
-      subtotals.aug += parseFloat(detail.aug) || 0;
-      subtotals.sep += parseFloat(detail.sep) || 0;
-      subtotals.oct += parseFloat(detail.oct) || 0;
-      subtotals.nov += parseFloat(detail.nov) || 0;
-      subtotals.dec += parseFloat(detail.dec) || 0;
-    });
+  return subtotals;
+};
 
-    return subtotals;
-  };
+const subtotals = calculateSubtotals();
 
-  const subtotals = calculateSubtotals();
-
-  const headerStyle = {
-    backgroundColor: header === "Employee Cost" ? "#5d7b9c" : "pink",
-    color: header === "Employee Cost" ? "white" : "black"
-  };
-
-  const isEditable = (header, key) => {
-    const nonEditableHeaders = ["Employee Cost", "Office Costs", "Marketing Cost", "Events Activitie"];
-    return !nonEditableHeaders.includes(header) || (key !== "employeeCost" && key !== "officeCost" && key !== "marketingCost" && key !== "events");
-  };
-  const formatYearTotal = (total) => {
-    return total.endsWith(".00") ? total.slice(0, -3) : total;
-  };
+const headerStyle = {
+ 
+};
+const isEditable = (header, key) => {
+  const nonEditableHeaders = ["Employees Costs", "Offices Costs", "Marketing Cost", "Events Activitie"];
+  return !nonEditableHeaders.includes(header) || (key !== "employeeCost" && key !== "officeCost" && key !== "marketingCost" && key !== "events");
+};
+const formatYearTotal = (total) => {
+  return total.endsWith(".00") ? total.slice(0, -3) : total;
+};
   return (
     <div>
       {header === "Employee Cost" && (
@@ -241,8 +240,8 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
           </button>
       </div>
       )}
-        <table className="styled-table">
-          <thead>
+        <table className="styled-tabl">
+          {/* <thead>
             <tr>
               <th> </th>
               <th className="expense-header" colSpan="">Actual/Expenses</th>
@@ -262,11 +261,23 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
               <th>YEAR</th>
               <th>Action</th>
             </tr>
-          </thead>
+          </thead> */}
           <thead className="styled-tabl">
-            <tr className="" style={headerStyle}>
+          <tr className="" style={headerStyle}>
               <th>S.No</th>
-              <th>{header}</th>
+              {header === "Employees Costs" ? (
+                
+            <th className="no-wrap employee-costs-header"  style={{marginLeft: '20px'}}>{header}</th>
+          ) : header === "Marketing Cost" ? (
+            <th className="no-wrap Marketing-costs-header" style={{marginLeft: '20px'}}>{header}</th>
+          ) : header === "Events Activitie" ? (
+            <th className="no-wrap Events-costs-header" style={{marginLeft: '20px'}}>{header}</th>
+          // ) : header === "Offices Costs" ? (
+          //   <th className="no-wrap" style={{marginLeft: ''}}>{header}</th>
+          ) : (
+              <th  className="no-wrap">{header}</th>
+            )}
+
               <th>JAN</th>
               <th>FEB</th>
               <th>MAR</th>
@@ -292,20 +303,25 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
                 )}
                 <tr key={`dataRow${detail._id}`}>
                   <td>{rowIndex + 1}</td>
-                  <td>
-                    {isEditable(header, "employeeCost") ? (
-                      <input
-                        style={{ background: "#5d7b9c", color: 'white', fontWeight: "bold" }}
-                        ref={(el) => (inputRefs.current[rowIndex] = [...(inputRefs.current[rowIndex] || []), el])}
-                        value={editedData[rowIndex]?.employeeCost || editedData[rowIndex]?.officeCost || editedData[rowIndex]?.marketingCost || editedData[rowIndex]?.events || detail.employeeCost || detail.officeCost || detail.marketingCost || detail.events || ""}
-                        onChange={(e) => handleInputChange(e, "employeeCost", rowIndex)}
-                        onBlur={() => handleSave(rowIndex)}
-                        // onKeyDown={(e) => handleKeyDown(e, rowIndex, 1)}
-                      />
-                    ) : (
-                      <span style={{ color: 'rgb(2, 131, 211)', fontWeight: 'bold' }}>
-                        {detail.employeeCost || detail.officeCost || detail.marketingCost || detail.events}
-                      </span>
+                  <td className="no-wrap">
+                  {isEditable(header, "employeeCost") ? (
+    <input 
+      style={{ background: "#5d7b9c", color: 'white', fontWeight: "bold" }}
+      ref={(el) => (inputRefs.current[rowIndex] = [...(inputRefs.current[rowIndex] || []), el])}
+      value={
+        `${editedData[rowIndex]?.employeeCost || detail.employeeCost || ""} ` +
+        `${editedData[rowIndex]?.officeCost || detail.officeCost || ""} ` +
+        `${editedData[rowIndex]?.marketingCost || detail.marketingCost || ""} ` +
+        `${editedData[rowIndex]?.events || detail.events || ""}`
+      }
+      onChange={(e) => handleInputChange(e, "employeeCost", rowIndex)}
+      onBlur={() => handleSave(rowIndex)}
+      // onKeyDown={(e) => handleKeyDown(e, rowIndex, 1)}
+    />
+  ) : (
+    <span style={{ color: 'rgb(2, 131, 211)', fontWeight: 'bold' }}>
+      {`${detail.employeeCost || ""} ${detail.officeCost || ""} ${detail.marketingCost || ""} ${detail.events || ""}`}
+    </span>
                     )}
                   </td>
                
@@ -433,36 +449,31 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
                   
                   <td className="year-header">
                   <input
-                    style={{ background: "", color: "rgb(2, 131, 211)", fontWeight: "bold" }}
-                    value={formatYearTotal((
-                      parseFloat(editedData[rowIndex]?.jan || detail.jan || 0) +
-                      parseFloat(editedData[rowIndex]?.feb || detail.feb || 0) +
-                      parseFloat(editedData[rowIndex]?.march || detail.march || 0) +
-                      parseFloat(editedData[rowIndex]?.april || detail.april || 0) +
-                      parseFloat(editedData[rowIndex]?.may || detail.may || 0) +
-                      parseFloat(editedData[rowIndex]?.june || detail.june || 0) +
-                      parseFloat(editedData[rowIndex]?.july || detail.july || 0) +
-                      parseFloat(editedData[rowIndex]?.aug || detail.aug || 0) +
-                      parseFloat(editedData[rowIndex]?.sep || detail.sep || 0) +
-                      parseFloat(editedData[rowIndex]?.oct || detail.oct || 0) +
-                      parseFloat(editedData[rowIndex]?.nov || detail.nov || 0) +
-                      parseFloat(editedData[rowIndex]?.dec || detail.dec || 0) +
-                      parseFloat(editedData[rowIndex]?.oct || detail.oct || 0) +
-                      parseFloat(editedData[rowIndex]?.nov || detail.nov || 0) +
-                      parseFloat(editedData[rowIndex]?.dec || detail.dec || 0)
-                    ).toFixed(2))}
-                    disabled
-                  />
-                  
-                </td>
-                <td className="button-container">
+                      style={{ background: "", color: "rgb(2, 131, 211)", fontWeight: "bold" }}
+                      value={formatYearTotal((
+                        parseFloat(editedData[rowIndex]?.jan || detail.jan || 0) +
+                        parseFloat(editedData[rowIndex]?.feb || detail.feb || 0) +
+                        parseFloat(editedData[rowIndex]?.march || detail.march || 0) +
+                        parseFloat(editedData[rowIndex]?.april || detail.april || 0) +
+                        parseFloat(editedData[rowIndex]?.may || detail.may || 0) +
+                        parseFloat(editedData[rowIndex]?.june || detail.june || 0) +
+                        parseFloat(editedData[rowIndex]?.july || detail.july || 0) +
+                        parseFloat(editedData[rowIndex]?.aug || detail.aug || 0) +
+                        parseFloat(editedData[rowIndex]?.sep || detail.sep || 0) +
+                        parseFloat(editedData[rowIndex]?.oct || detail.oct || 0) +
+                        parseFloat(editedData[rowIndex]?.nov || detail.nov || 0) +
+                        parseFloat(editedData[rowIndex]?.dec || detail.dec || 0)
+                      ).toFixed(2))}
+                      disabled
+                    />
+                  </td>
+                  <td className="button-container">
                                 <button onClick={() => handleDelete(detail._id)}>
                                 <i className="" style={{ color: "white" }}></i> Delete
                                 </button>
                             </td>
-              </tr>
-            </React.Fragment>
-            
+                </tr>
+              </React.Fragment>
             ))}
             <tr style={{ fontWeight: "bold", color: "rgb(255, 255, 255)", backgroundColor: "rgb(36, 163, 115)" , marginRight: "30px" }}>
               <td colSpan="2" className="subtotal-cell">Subtotal</td>
@@ -480,6 +491,7 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
               <td>{subtotals.dec}</td>
               <td className="subtotal-value">{Object.values(subtotals).reduce((sum, value) => sum + value, 0)}</td>
               <td>Action</td>
+
             </tr>
                    </tbody>
         </table>
@@ -517,14 +529,14 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
         <table className="styled-tabl">
           <thead>
           <tr>
-            <th>Total Expenses</th>
+             <th>Total Expense</th>
               <th>JAN</th>
               <th>FEB</th>
               <th>MAR</th>
               <th>APR</th>
               <th>MAY</th>
-              <th>JUNE</th>
-              <th>JULY</th>
+              <th>JUN</th>
+              <th>JUL</th>
               <th>AUG</th>
               <th>SEPT</th>
               <th>OCT</th>
@@ -535,20 +547,21 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
           </thead>
           <tbody>
           <tr className="month-header ">
-              <td className="total-year">Total Expenses</td>
-              <td className="total-year">{totalSubtotals.jan}</td>
-              <td className="total-year">{totalSubtotals.feb}</td>
-              <td className="total-year">{totalSubtotals.march}</td>
-              <td className="total-year">{totalSubtotals.april}</td>
-              <td className="total-year">{totalSubtotals.may}</td>
-              <td className="total-year">{totalSubtotals.june}</td>
-              <td className="total-year">{totalSubtotals.july}</td>
-              <td className="total-year">{totalSubtotals.aug}</td>
-              <td className="total-year">{totalSubtotals.sep}</td>
-              <td className="total-year">{totalSubtotals.oct}</td>
-              <td className="total-year">{totalSubtotals.nov}</td>
-              <td className="total-year"> {totalSubtotals.dec}</td>
+              <td className="subtotal-cell">Total Expenses</td>
+              <td className="subtotal-cell">{totalSubtotals.jan}</td>
+              <td className="subtotal-cell">{totalSubtotals.feb}</td>
+              <td className="subtotal-cell">{totalSubtotals.march}</td>
+              <td className="subtotal-cell">{totalSubtotals.april}</td>
+              <td className="subtotal-cell">{totalSubtotals.may}</td>
+              <td className="subtotal-cell">{totalSubtotals.june}</td>
+              <td className="subtotal-cell">{totalSubtotals.july}</td>
+              <td className="subtotal-cell">{totalSubtotals.aug}</td>
+              <td className="subtotal-cell">{totalSubtotals.sep}</td>
+              <td className="subtotal-cell">{totalSubtotals.oct}</td>
+              <td className="subtotal-cell">{totalSubtotals.nov}</td>
+              <td className="subtotal-cell"> {totalSubtotals.dec}</td>
               <td className="year-header">{total}</td>
+
             </tr>
           </tbody>
         </table>

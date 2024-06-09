@@ -1,53 +1,85 @@
 
 .inline-form {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-  }
-  .input-field {
-    width: 100px; /* Adjust the width as needed */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .button-container {
-    text-align: center;
-  }
-  .styled-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .styled-table th,
-.styled-table td {
-  padding: 8px;
-  border: 1px solid #ddd;
+}
+.no-wrap {
+  white-space: nowrap;
+
+}
+.employee-costs-header {
+  display: inline-block;
+  padding-right: 40px;
+}
+.Marketing-costs-header
+{
+  display: inline-block;
+  padding-right: 50px;
+}
+.Events-costs-header
+{
+  display: inline-block;
+  padding-right: 50px;
+}
+.Total-costs-header
+{
+  display: inline-block;
+  padding-right: 10px;
+}
+.No-costs-header
+{
+  display: inline-block;
+  padding-right:  10px;
 }
 
-  .inline-form .input-group {
-    display: flex;
-    align-items: center;
-    margin-right: 0px;
-  }
-  
-  .inline-form .input-group label {
-    display: flex;
-    align-items: center;
-    color: #3498db;
-    font-weight: bold; 
-    font-size: 14px;
- }
-  
-  .inline-form .input-group label input {
-    margin-left: 5px;
-    width: 130px; 
-    height: 40px; 
-    font-size: 16px; 
-    padding: 5px; 
-  }
-  
-  .inline-form button {
-    margin-left: 10px;
-    height: 40px; 
-    font-size: 16px; 
-  }
-  
+
+.centered-header {
+text-align: center;
+}
+.input-field {
+  width: 100px; /* Adjust the width as needed */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.button-container {
+  text-align: center;
+}
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.styled-table th,
+.styled-table td {
+padding: 8px;
+border: 1px solid #ddd;
+}
+
+.inline-form .input-group {
+  display: flex;
+  align-items: center;
+  margin-right: 0px;
+}
+
+.inline-form .input-group label {
+  display: flex;
+  align-items: center;
+  color: #3498db;
+  font-weight: bold; 
+  font-size: 14px;
+}
+
+.inline-form .input-group label input {
+  margin-left: 5px;
+  width: 130px; 
+  height: 40px; 
+  font-size: 16px; 
+  padding: 5px; 
+}
+
+.inline-form button {
+  margin-left: 10px;
+  height: 40px; 
+  font-size: 16px; 
+}

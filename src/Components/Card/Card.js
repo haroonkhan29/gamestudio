@@ -30,7 +30,11 @@ const Card = ({ item, disabled }) => {
           justifyContent: "center",
           alignItems: "center",
           margin: "0 auto", 
+          transition: "background-color 0.3s ease", 
+          cursor: "pointer",
         }}
+        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = (item.isDashboard ? "blue" : item.color?.[50] || "")}
       >
         <div style={{ 
           backgroundColor: item.color?.[50] || "", 

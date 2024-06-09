@@ -51,10 +51,10 @@ const Expensesheetformview = () => {
   };
 
   const handleSaveSuccess = () => {
-    setSuccessMessage("Changes saved successfully!");
-    setTimeout(() => {
-      setSuccessMessage(null);
-    }, 3000);
+    // setSuccessMessage("Changes saved successfully!");
+    // setTimeout(() => {
+    //   setSuccessMessage(null);
+    // }, 3000);
     fetchAllProgress(); 
   };
 
@@ -88,7 +88,7 @@ const Expensesheetformview = () => {
         <DataTable
           progressData={employeesProgress}
           onSaveSuccess={handleSaveSuccess}
-          header="Employee Cost"
+          header="Employees Costs"
           onDelete={handleDelete} // Pass handleDelete function
           editedData={editedEmployeeData} 
           setEditedData={setEditedEmployeeData} 
@@ -99,7 +99,7 @@ const Expensesheetformview = () => {
         <DataTable
           progressData={officesProgress}
           onSaveSuccess={handleSaveSuccess}
-          header="Office Costs"
+          header="Offices Costs"
           onDelete={handleDelete} // Pass handleDelete function
           editedData={editedOfficeData} // Pass edited data for office table
           setEditedData={setEditedOfficeData} // Function to set edited data for office table
@@ -224,11 +224,11 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
     const subtotals = calculateSubtotals();
   
     const headerStyle = {
-      backgroundColor: header === "Employee Cost" ? "#5d7b9c" : "pink",
-      color: header === "Employee Cost" ? "white" : "black"
+      // backgroundColor: header === "Employee Cost" ? "#5d7b9c" : "pink",
+      // color: header === "Employee Cost" ? "white" : "black"
     };
     const isEditable = (header, key) => {
-      const nonEditableHeaders = ["Employee Cost", "Office Costs", "Marketing Cost", "Events Activitie"];
+      const nonEditableHeaders = ["Employees Costs", "Offices Costs", "Marketing Cost", "Events Activitie"];
       return !nonEditableHeaders.includes(header) || (key !== "employeesCost" && key !== "officesCost" && key !== "marketingsCost" && key !== "eventss");
     };
     const formatYearTotal = (total) => {
@@ -243,8 +243,8 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
             </button>
           </div>
         )}
-        <table className="styled-table">
-          <thead>
+        <table className="styled-tabl">
+          {/* <thead>
             <tr>
               <th></th>
               <th className="expense-header" colSpan="">Actual/Expenses</th>
@@ -263,12 +263,22 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
               <th>YEAR</th>
               <th>Action</th>
             </tr>
-          </thead>
+          </thead> */}
           <thead className="styled-tabl">
-            <tr className="" style={headerStyle}>
+          <tr className="" style={headerStyle}>
               <th>S.No</th>
-              <th>{header}</th>
-
+              {header === "Employees Costs" ? (
+                
+            <th className="no-wrap employee-costs-header"  style={{marginLeft: '20px'}}>{header}</th>
+          ) : header === "Marketing Cost" ? (
+            <th className="no-wrap Marketing-costs-header" style={{marginLeft: '20px'}}>{header}</th>
+          ) : header === "Events Activitie" ? (
+            <th className="no-wrap Events-costs-header" style={{marginLeft: '20px'}}>{header}</th>
+          // ) : header === "Offices Costs" ? (
+          //   <th className="no-wrap" style={{marginLeft: ''}}>{header}</th>
+          ) : (
+              <th  className="no-wrap">{header}</th>
+            )}
               <th>JAN</th>
               <th>FEB</th>
               <th>MAR</th>
@@ -294,7 +304,7 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
                 )}
                 <tr key={`dataRow${detail._id}`}>
                   <td>{rowIndex + 1}</td>
-                  <td>
+                  <td className="no-wrap">
                   {isEditable(header, "employeesCost") ? (
                     <input
                       style={{ background: "#5d7b9c", color: 'white', fontWeight: "bold" }}
@@ -302,8 +312,7 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
                       value={editedData[rowIndex]?.employeesCost || editedData[rowIndex]?.officesCost || editedData[rowIndex]?.marketingsCost || editedData[rowIndex]?.eventss || detail.employeesCost || detail.officesCost || detail.marketingsCost || detail.eventss || ""}
                       onChange={(e) => handleInputChange(e, "employeesCost", rowIndex)}
                       onBlur={() => handleSave(rowIndex)}
-
-                    //   onKeyDown={(e) => handleKeyDown(e, rowIndex, 1)}
+                      //   onKeyDown={(e) => handleKeyDown(e, rowIndex, 1)}
                     />
                 ) : (
                     <span style={{ color: 'rgb(2, 131, 211)', fontWeight: 'bold' }}>
@@ -316,9 +325,8 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
                       ref={(el) => (inputRefs.current[rowIndex] = [...(inputRefs.current[rowIndex] || []), el])}
                       value={editedData[rowIndex]?.jans || editedData[rowIndex]?.officesjan || editedData[rowIndex]?.marketingsjan || editedData[rowIndex]?.eventssjan || detail.jans || detail.officesjan || detail.marketingjsan || detail.eventssjan || ""}
                       onChange={(e) => handleInputChange(e, "jans", rowIndex)}
-                      onKeyDown={(e) => handleKeyDown(e, rowIndex, 1)}
                       onBlur={() => handleSave(rowIndex)}
-
+                      onKeyDown={(e) => handleKeyDown(e, rowIndex, 1)}
                     />
                   </td>
                   <td>
@@ -326,9 +334,8 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
                       ref={(el) => (inputRefs.current[rowIndex] = [...(inputRefs.current[rowIndex] || []), el])}
                       value={editedData[rowIndex]?.febs || editedData[rowIndex]?.officesfeb || editedData[rowIndex]?.marketingsfeb || editedData[rowIndex]?.eventssfeb || detail.febs || detail.officesfeb || detail.marketingsfeb || detail.eventssfeb || ""}
                       onChange={(e) => handleInputChange(e, "febs", rowIndex)}
-                      onKeyDown={(e) => handleKeyDown(e, rowIndex, 2)}
                       onBlur={() => handleSave(rowIndex)}
-
+                      onKeyDown={(e) => handleKeyDown(e, rowIndex, 2)}
                     />
                   </td>
                   <td>
@@ -336,9 +343,8 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
                       ref={(el) => (inputRefs.current[rowIndex] = [...(inputRefs.current[rowIndex] || []), el])}
                       value={editedData[rowIndex]?.marchs || editedData[rowIndex]?.officesmarch || editedData[rowIndex]?.marketingsmarch || editedData[rowIndex]?.eventssmarch || detail.marchs || detail.officesmarch || detail.marketingsmarch || detail.eventssmarch || ""}
                       onChange={(e) => handleInputChange(e, "marchs", rowIndex)}
-                      onKeyDown={(e) => handleKeyDown(e, rowIndex, 3)}
                       onBlur={() => handleSave(rowIndex)}
-
+                      onKeyDown={(e) => handleKeyDown(e, rowIndex, 3)}
                     />
                   </td>
                   <td>
@@ -357,7 +363,6 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
                       }
                       onChange={(e) => handleInputChange(e, "aprils", rowIndex)}
                       onBlur={() => handleSave(rowIndex)}
-
                       onKeyDown={(e) => handleKeyDown(e, rowIndex, 4)}
                     />
                   </td>
@@ -529,23 +534,24 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
               <th>NOV</th>
               <th>DEC</th>
               <th>YEAR</th>
+    
             </tr>
           </thead>
           <tbody>
-          <tr className="month-header ">
-              <td className="total-year">Total Expenses</td>
-              <td className="total-year">{totalSubtotals.jans}</td>
-              <td className="total-year">{totalSubtotals.febs}</td>
-              <td className="total-year">{totalSubtotals.marchs}</td>
-              <td className="total-year">{totalSubtotals.aprils}</td>
-              <td className="total-year">{totalSubtotals.mays}</td>
-              <td className="total-year">{totalSubtotals.junes}</td>
-              <td className="total-year">{totalSubtotals.julys}</td>
-              <td className="total-year">{totalSubtotals.augs}</td>
-              <td className="total-year">{totalSubtotals.seps}</td>
-              <td className="total-year">{totalSubtotals.octs}</td>
-              <td className="total-year">{totalSubtotals.novs}</td>
-              <td className="total-year"> {totalSubtotals.decs}</td>
+          <tr className="month-header ">        
+              <td className="subtotal-cell">Total Expenses</td>
+              <td className="subtotal-cell">{totalSubtotals.jans}</td>
+              <td className="subtotal-cell">{totalSubtotals.febs}</td>
+              <td className="subtotal-cell">{totalSubtotals.marchs}</td>
+              <td className="subtotal-cell">{totalSubtotals.aprils}</td>
+              <td className="subtotal-cell">{totalSubtotals.mays}</td>
+              <td className="subtotal-cell">{totalSubtotals.junes}</td>
+              <td className="subtotal-cell">{totalSubtotals.julys}</td>
+              <td className="subtotal-cell">{totalSubtotals.augs}</td>
+              <td className="subtotal-cell">{totalSubtotals.seps}</td>
+              <td className="subtotal-cell">{totalSubtotals.octs}</td>
+              <td className="subtotal-cell">{totalSubtotals.novs}</td>
+              <td className="subtotal-cell"> {totalSubtotals.decs}</td>
               <td className="year-header">{total}</td>
             </tr>
           </tbody>
