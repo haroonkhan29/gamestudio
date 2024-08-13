@@ -61,7 +61,7 @@ const RegistrationForm = ({ onRegisterSuccess, onBackButtonClick }) => {
     }
 
     try {
-      const response = await fetch('http://3.144.84.51:3001/user/register', {
+      const response = await fetch('http://3.144.184.51:3001/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
