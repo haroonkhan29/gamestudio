@@ -26,7 +26,7 @@ const EmployeeTable = () => {
   
     const fetchAttendanceData = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/attendance?date=${selectedDate}`);
+        const response = await fetch(`http://18.217.96.83:3001/attendance?date=${selectedDate}`);
         const data = await response.json();
         setAttendanceData(data);
         // setFormattedSelectedDate(formatDate(new Date(selectedDate))); // Removed
@@ -47,7 +47,7 @@ const EmployeeTable = () => {
       setError(null);
   
       try {
-        const response = await fetch(`http://localhost:8080/attendance?date=${selectedDate}`);
+        const response = await fetch(`http://18.217.96.83:3001/attendance?date=${selectedDate}`);
         const data = await response.json();
         setAttendanceData(data);
         // setFormattedSelectedDate(formatDate(new Date(selectedDate))); // Removed
@@ -106,7 +106,7 @@ const EmployeeTable = () => {
               <tr key={index}>
                 <td>
                   <img
-                    src={`http://localhost:8080/uploads/${attendance.profilePic}`}
+                    src={`http://18.217.96.83:3001/uploads/${attendance.profilePic}`}
                     alt=""
                     className="profile-picture1"
                   />

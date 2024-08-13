@@ -64,7 +64,7 @@ const AssignmentView = () => {
         console.error("Invalid _id for deletion");
         return;
       }
-      const response = await fetch(`http://localhost:8080/dailyAssignment/${recordId}`, {
+      const response = await fetch(`http://18.217.96.83:3001/dailyAssignment/${recordId}`, {
         method: "DELETE",
       });
   
@@ -103,7 +103,7 @@ const AssignmentView = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:8080/dailyAssignment/getAll");
+        const response = await fetch("http://18.217.96.83:3001/dailyAssignment/getAll");
 
         if (!response.ok) {
           throw new Error("Network response was not ok");

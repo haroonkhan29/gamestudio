@@ -9,7 +9,7 @@ const ForgotPasswordForm = ({ onResetPassword, onBackToLogin }) => {
 
   const handleResetPassword = async () => {
     try {
-      const response = await fetch('http://localhost:8080/user/forgot-password', {
+      const response = await fetch('http://18.217.96.83:3001/user/forgot-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

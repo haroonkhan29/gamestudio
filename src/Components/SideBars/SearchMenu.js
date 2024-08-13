@@ -131,7 +131,7 @@ const SearchMenu = ({ drawerWidth, open }) => {
     formData.append("addressCity", newEmployee.addressCity);
     formData.append("addressPostalCode", newEmployee.addressPostalCode);
 
-    fetch('http://localhost:8080/employee/', 
+    fetch('http://18.217.96.83:3001/employee/', 
     {      
       method: 'POST',
       body: formData,

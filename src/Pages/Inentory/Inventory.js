@@ -67,7 +67,7 @@ const Inventory = () => {
     console.log("Progress Form submitted:", progressFormData);
     try {
       const response = await axios.post(
-        "http://localhost:8080/inventory",
+        "http://18.217.96.83:3001/inventory",
         progressFormData
       );
       console.log(response.data);

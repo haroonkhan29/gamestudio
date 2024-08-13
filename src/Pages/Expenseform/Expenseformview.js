@@ -35,7 +35,7 @@ const Expenseformview = () => {
 
   const fetchAllProgress = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/expenseform");
+      const response = await axios.get("http://18.217.96.83:3001/expenseform");
       const progressData = response.data;
       setProgressDetails(progressData);
       setEmployeeProgress(progressData.filter(detail => detail.employeeCost));
@@ -151,7 +151,7 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
     if (progressData[index]) {
       const progressId = progressData[index]._id;
       try {
-        await axios.put(`http://localhost:8080/expenseform/${progressId}`, editedData[index]);
+        await axios.put(`http://18.217.96.83:3001/expenseform/${progressId}`, editedData[index]);
         onSaveSuccess();
       } catch (error) {
         console.error("Error updating progress:", error);
@@ -162,7 +162,7 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
   };
   const handleDelete = async (progressId) => {
     try {
-        await axios.delete(`http://localhost:8080/expenseform/${progressId}`);
+        await axios.delete(`http://18.217.96.83:3001/expenseform/${progressId}`);
         onSaveSuccess();
         onDelete(progressId); 
     } catch (error) {

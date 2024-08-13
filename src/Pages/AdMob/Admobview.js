@@ -42,7 +42,7 @@ const Admobview = () => {
     setFullScreen(true);
     const images = admobData.map((item) => ({
       id: item._id,
-      imageSrc: `http://localhost:8080/uploads/${item.profilePic}`,
+      imageSrc: `http://18.217.96.83:3001/uploads/${item.profilePic}`,
       date: item.date,
       accountName: item.accountName,
     }));
@@ -55,7 +55,7 @@ const Admobview = () => {
 
   const handleDelete = async (index, id) => {
     try {
-      await axios.delete(`http://localhost:8080/admob/${id}`);
+      await axios.delete(`http://18.217.96.83:3001/admob/${id}`);
       deleteAdmobData(index);
     } catch (error) {
       console.error(error);
@@ -101,7 +101,7 @@ const Admobview = () => {
 
   const fetchData = async (formattedDate) => {
     try {
-      const apiUrl = "http://localhost:8080/admob";
+      const apiUrl = "http://18.217.96.83:3001/admob";
       const response = await axios.get(apiUrl);
 
       let filteredData = response.data;
@@ -144,7 +144,7 @@ const Admobview = () => {
               <span className="account-name-span">{selectedData.accountName}</span>
               {selectedData.profilePic && (
                 <img
-                  src={`http://localhost:8080/uploads/${selectedData.profilePic}`}
+                  src={`http://18.217.96.83:3001/uploads/${selectedData.profilePic}`}
                   alt="Selected"
                   style={{ width: "100%", height: "auto", marginTop: "10px" }}
                   onClick={() => {
@@ -192,7 +192,7 @@ const Admobview = () => {
                         <td>
                           {data.profilePic && (
                             <img
-                              src={`http://localhost:8080/uploads/${data.profilePic}`}
+                              src={`http://18.217.96.83:3001/uploads/${data.profilePic}`}
                               alt="Profile"
                               style={{
                                 width: "50px",
@@ -201,7 +201,7 @@ const Admobview = () => {
                               }}
                               onClick={() =>
                                 openImageModal(
-                                  `http://localhost:8080/uploads/${data.profilePic}`
+                                  `http://18.217.96.83:3001/uploads/${data.profilePic}`
                                 )
                               }
                             />
