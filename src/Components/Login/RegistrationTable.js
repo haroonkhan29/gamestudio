@@ -10,7 +10,7 @@ const RegistrationTable = () => {
 
   const fetchRegistrations = async () => {
     try {
-      const response = await axios.get('http://18.216.203.240:3001/user');
+      const response = await axios.get('http://3.140.190.237:3002/user');
       setRegistrations(response.data);
     } catch (error) {
       console.error('Error fetching registrations:', error);
@@ -19,7 +19,7 @@ const RegistrationTable = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://18.216.203.240:3001/user/${id}`);
+      await axios.delete(`http://3.140.190.237:3002/user/${id}`);
       fetchRegistrations();
     } catch (error) {
       console.error('Error deleting registration:', error);
