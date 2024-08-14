@@ -4,8 +4,8 @@ import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import "./Revenue.css";
 
-const SPREADSHEET_ID = "1xZc-XdKE1lvoUFQwlTLpN57DyoDo-YPlz24_0SxaQjY";
-const FETCH_INTERVAL = 1000;
+// const SPREADSHEET_ID = "1xZc-XdKE1lvoUFQwlTLpN57DyoDo-YPlz24_0SxaQjY";
+// const FETCH_INTERVAL = 1000;
 const Revenue = () => {
   const [data, setData] = useState([]);
   const [activeButton, setActiveButton] = useState("Appstark");
@@ -14,7 +14,7 @@ const Revenue = () => {
   const fetchData = async (range, startDate, endDate) => {
     try {
       const response = await axios.get(
-        `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}`,
+        // `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}`,
         {
           params: {
             key: "AIzaSyD54iNbpWpMyDs0KsH0RMotlPwkebiA-gw",
@@ -54,43 +54,43 @@ const Revenue = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData(activeButton, startDate, endDate);
-    const intervalId = setInterval(() => {
-      fetchData(activeButton, startDate, endDate);
-    }, FETCH_INTERVAL);
-    return () => clearInterval(intervalId);
-  }, [activeButton, startDate, endDate]);
+  // useEffect(() => {
+  //   fetchData(activeButton, startDate, endDate);
+  //   const intervalId = setInterval(() => {
+  //     fetchData(activeButton, startDate, endDate);
+  //   }, FETCH_INTERVAL);
+  //   return () => clearInterval(intervalId);
+  // }, [activeButton, startDate, endDate]);
 
-  const handleButtonClick = (range) => {
-    setActiveButton(range);
-  };
+  // const handleButtonClick = (range) => {
+  //   setActiveButton(range);
+  // };
 
-  const rowIndices = {
-    Appstark: {
-      "first-row": [],
-      "eighth-row": [],
-    },
+  // const rowIndices = {
+  //   Appstark: {
+  //     "first-row": [],
+  //     "eighth-row": [],
+  //   },
 
-    "D-Apps": {
-      "first-row": [],
-      "eighth-row": [],
-    },
-    Actionshore: {
-      "first-row": [],
-      "eighth-row": [],
-    },
-    "Adnan Haider iOS (DApps)": {
-      "first-row": [],
-      "eighth-row": [],
-    },
-    "Kamran Haider iOS (Appstark)": {
-      "first-row": [],
-      "eighth-row": [],
-    },
+  //   "D-Apps": {
+  //     "first-row": [],
+  //     "eighth-row": [],
+  //   },
+  //   Actionshore: {
+  //     "first-row": [],
+  //     "eighth-row": [],
+  //   },
+  //   "Adnan Haider iOS (DApps)": {
+  //     "first-row": [],
+  //     "eighth-row": [],
+  //   },
+  //   "Kamran Haider iOS (Appstark)": {
+  //     "first-row": [],
+  //     "eighth-row": [],
+  //   },
    
     
-  };
+  // };
 
   const getRowClass = (activeButton, rowIndex) => {
     let isFirstRow, isEighthRow;
@@ -112,10 +112,10 @@ const Revenue = () => {
       isEighthRow = (rowIndex - 3) % 4 === 0;
     }
     if (isFirstRow) {
-      rowIndices[activeButton]["first-row"].push(rowIndex);
+      // rowIndices[activeButton]["first-row"].push(rowIndex);
       return "first-row";
     } else if (isEighthRow) {
-      rowIndices[activeButton]["eighth-row"].push(rowIndex);
+      // rowIndices[activeButton]["eighth-row"].push(rowIndex);
       return "eighth-row";
     }
 
@@ -124,7 +124,7 @@ const Revenue = () => {
 
   return (
     <div className="">
-      <div className="header">
+      {/* <div className="header">
         <h1>App Revenue</h1>
       </div>
       <div className="sidebar">
@@ -206,7 +206,7 @@ const Revenue = () => {
 </table>
 
 
-      <CircularProgress />
+      <CircularProgress /> */}
     </div>
   );
 };

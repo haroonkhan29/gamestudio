@@ -1,8 +1,18 @@
 import React from "react";
 import Card from "../Card/Card";
 import { Grid } from "@mui/material";
+import { useAuth } from "../../AuthContext"; 
 
-const BigCard = ({ items, disabled }) => {
+const BigCard = ({ items }) => {
+  const { userType } = useAuth(); 
+
+  const isItemEnabled = (item) => {
+    if (userType === 'admin') return true;
+
+    const allowedItems = ['Dashboard', 'Attendance', 'Daily Assignment','Assignment', 'Logout'];
+    return allowedItems.includes(item.name);
+  };
+
   const firstRowItems = items.slice(0, 4);
   const secondRowItems = items.slice(4, 13);
   const thirdRowItems = items.slice(13);
@@ -13,23 +23,21 @@ const BigCard = ({ items, disabled }) => {
         <Grid container item xs={12} spacing={2}>
           {firstRowItems.map((item, index) => (
             <Grid item key={index} xs={12} sm={6} md={3}>
-              <Card item={item} disabled={disabled} />
+              <Card item={item} disabled={!isItemEnabled(item)} />
             </Grid>
           ))}
         </Grid>
         <Grid container item xs={12} spacing={2}>
           {secondRowItems.map((item, index) => (
             <Grid item key={index} xs={12} sm={6} md={3}>
-              <Card item={item} disabled={disabled} />
+              <Card item={item} disabled={!isItemEnabled(item)} />
             </Grid>
           ))}
         </Grid>
-
-        {/* Third Row */}
         <Grid container item xs={12} justifyContent="center">
           {thirdRowItems.map((item, index) => (
             <Grid item key={index} xs={12} sm={6} md={6}>
-              <Card item={item} disabled={disabled} />
+              <Card item={item} disabled={!isItemEnabled(item)} />
             </Grid>
           ))}
         </Grid>
