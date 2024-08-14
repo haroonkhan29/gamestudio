@@ -34,7 +34,7 @@ import ForgotPasswordForm from './ForgotPasswordForm';
   };
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://3.15.164.167:3001/user/login', {
+      const response = await fetch('http://18.216.203.240:3001/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
