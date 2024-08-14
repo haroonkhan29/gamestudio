@@ -121,7 +121,7 @@ const handleSave = async () => {
             .filter(([key, value]) => key !== 'category' && value.trim() !== '');
             await Promise.all(
             updatedMonths.map(([month, value]) =>
-              fetch('http://18.217.96.83:3001/expenses', {
+              fetch('http://3.140.190.237:3002/expenses', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'
@@ -154,7 +154,7 @@ const handleSave = async () => {
   useEffect(() => {
     const fetchExpenseData = async () => {
       try {
-        const response = await fetch(`http://18.217.96.83:3001/expenses`);
+        const response = await fetch(`http://3.140.190.237:3002/expenses`);
         if (!response.ok) {
           throw new Error('Failed to fetch expense data');
         }

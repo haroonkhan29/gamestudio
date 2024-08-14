@@ -34,7 +34,7 @@ const EmployeeTable = () => {
 
   const fetchEmployeeData = async () => {
     try {
-      const response = await fetch("http://18.217.96.83:3001/employee");
+      const response = await fetch("http://3.140.190.237:3002/employee");
       const data = await response.json();
       setEmployee(data);
     } catch (error) {
@@ -68,7 +68,7 @@ const EmployeeTable = () => {
             label: "Yes",
             onClick: async () => {
               try {
-                await fetch(`http://18.217.96.83:3001/employee/${employee[recordIndex]._id}`, {
+                await fetch(`http://3.140.190.237:3002/employee/${employee[recordIndex]._id}`, {
                   method: 'DELETE',
                 });
                 const updatedEmployee = [...employee];
@@ -206,7 +206,7 @@ const EmployeeTable = () => {
     {/* Profile column */}
     <td onClick={(event) => handleProfilePicClick(event, index)}>
       <img
-        src={`http://18.217.96.83:3001/uploads/${data.profilePic}`}
+        src={`http://3.140.190.237:3002/uploads/${data.profilePic}`}
         alt=""
         className="profile-picture"
       />

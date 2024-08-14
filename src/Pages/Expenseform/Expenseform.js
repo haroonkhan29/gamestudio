@@ -113,7 +113,7 @@ const Expenseform = () => {
     console.log("Progress Form submitted:", progressFormData);
     try {
       const response = await axios.post(
-        "http://18.217.96.83:3001/expenseform",
+        "http://3.140.190.237:3002/expenseform",
         progressFormData
       );
       console.log(response.data);

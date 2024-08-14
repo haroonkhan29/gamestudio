@@ -18,7 +18,7 @@ const InventoryView = () => {
 
   const fetchAllProgress = async () => {
     try {
-      const response = await axios.get("http://18.217.96.83:3001/inventory");
+      const response = await axios.get("http://3.140.190.237:3002/inventory");
       const progressData = response.data;
       setProgressDetails(progressData);
       setGoogleProgress(progressData.filter(detail => detail.item));
@@ -77,7 +77,7 @@ const DataTable = ({ progressData, onSaveSuccess, hideTotalUserLoss }) => {
     if (progressData[index]) {
       const progressId = progressData[index]._id;
       try {
-        await axios.put(`http://18.217.96.83:3001/inventory/${progressId}`, editedData[index] || progressData[index]);
+        await axios.put(`http://3.140.190.237:3002/inventory/${progressId}`, editedData[index] || progressData[index]);
         onSaveSuccess();
       } catch (error) {
         console.error("Error updating progress:", error);

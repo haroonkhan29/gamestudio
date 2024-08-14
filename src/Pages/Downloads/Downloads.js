@@ -43,7 +43,7 @@ const DailyAssignment = () => {
     //   .then((data) => setDeveloperList(data))
     //   .catch((error) => console.error("Error fetching developers:", error));
 
-    fetch("http://18.217.96.83:3001/project/getAll")
+    fetch("http://3.140.190.237:3002/project/getAll")
     .then((response) => response.json())
     .then((data) => {
       // Sort the project list in ascending order based on the project name
@@ -82,7 +82,7 @@ const DailyAssignment = () => {
   };
   const deleteDeveloper = async (developerId) => {
     try {
-      await fetch(`http://18.217.96.83:3001/developer/${developerId}`, {
+      await fetch(`http://3.140.190.237:3002/developer/${developerId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const DailyAssignment = () => {
 
   const deleteProject = async (projectId) => {
     try {
-      await fetch(`http://18.217.96.83:3001/project/${projectId}`, {
+      await fetch(`http://3.140.190.237:3002/project/${projectId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -112,7 +112,7 @@ const DailyAssignment = () => {
     e.preventDefault();
 
     try {
-      await fetch("http://18.217.96.83:3001/developer/create", {
+      await fetch("http://3.140.190.237:3002/developer/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +120,7 @@ const DailyAssignment = () => {
         body: JSON.stringify({ name: formData.developer }),
       });
 
-      await fetch("http://18.217.96.83:3001/project/create", {
+      await fetch("http://3.140.190.237:3002/project/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,7 +128,7 @@ const DailyAssignment = () => {
         body: JSON.stringify({ name: formData.project }),
       });
 
-      const response = await fetch("http://18.217.96.83:3001/dailyAssignment/create", {
+      const response = await fetch("http://3.140.190.237:3002/dailyAssignment/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

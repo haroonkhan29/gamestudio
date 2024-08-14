@@ -24,7 +24,7 @@ const EditForm = ({ record, onSave, onCancel, date, deadline }) => {
   const [projectList, setProjectList] = useState(initialProjectList);
 
   useEffect(() => {
-  fetch("http://18.217.96.83:3001/project/getAll")
+  fetch("http://3.140.190.237:3002/project/getAll")
   .then((response) => response.json())
   .then((data) => setProjectList(data))
   .catch((error) => console.error("Error fetching projects:", error));
@@ -49,7 +49,7 @@ const EditForm = ({ record, onSave, onCancel, date, deadline }) => {
   };
   const updateApiData = async () => {
     try {
-      const response = await fetch(`http://18.217.96.83:3001/dailyAssignment/${editedRecord._id}`, {
+      const response = await fetch(`http://3.140.190.237:3002/dailyAssignment/${editedRecord._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

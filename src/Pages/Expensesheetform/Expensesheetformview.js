@@ -35,7 +35,7 @@ const Expensesheetformview = () => {
 
   const fetchAllProgress = async () => {
     try {
-      const response = await axios.get("http://18.217.96.83:3001/expensesheet");
+      const response = await axios.get("http://3.140.190.237:3002/expensesheet");
       const progressData = response.data;
       setProgressDetails(progressData);
       setEmployeesProgress(progressData.filter(detail => detail.employeesCost));
@@ -153,7 +153,7 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
       if (progressData[index]) {
         const progressId = progressData[index]._id;
         try {
-          await axios.put(`http://18.217.96.83:3001/expensesheet/${progressId}`, editedData[index]);
+          await axios.put(`http://3.140.190.237:3002/expensesheet/${progressId}`, editedData[index]);
           onSaveSuccess();
         } catch (error) {
           console.error("Error updating progress:", error);
@@ -164,7 +164,7 @@ const DataTable = ({ progressData, onSaveSuccess, onDelete, header, editedData, 
     };
     const handleDelete = async (progressId) => {
       try {
-          await axios.delete(`http://18.217.96.83:3001/expensesheet/${progressId}`);
+          await axios.delete(`http://3.140.190.237:3002/expensesheet/${progressId}`);
           onSaveSuccess();
           onDelete(progressId); // Update state to remove the deleted row
       } catch (error) {

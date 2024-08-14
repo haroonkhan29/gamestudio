@@ -30,7 +30,7 @@ const PettyCashList = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://18.217.96.83:3001/pettycash');
+      const response = await fetch('http://3.140.190.237:3002/pettycash');
       const data = await response.json();
       let filteredData = data;
       if (selectedDate) {
@@ -88,7 +88,7 @@ const PettyCashList = () => {
         formData.append('image', imageChanges[id]);
       }
 
-      const response = await fetch(`http://18.217.96.83:3001/pettycash/${id}`, {
+      const response = await fetch(`http://3.140.190.237:3002/pettycash/${id}`, {
         method: 'PUT',
         body: formData,
       });
@@ -106,7 +106,7 @@ const PettyCashList = () => {
 
   const handleDeleteClick = async (id) => {
     try {
-      const response = await fetch(`http://18.217.96.83:3001/pettycash/${id}`, {
+      const response = await fetch(`http://3.140.190.237:3002/pettycash/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
@@ -187,10 +187,10 @@ const PettyCashList = () => {
                   ) : (
                     item.image && (
                       <img
-                        src={`http://18.217.96.83:3001/${item.image}`}
+                        src={`http://3.140.190.237:3002/${item.image}`}
                         alt="Expense Receipt"
                         style={{ maxWidth: '100px' }}
-                        onClick={() => openFullScreenImage(`http://18.217.96.83:3001/${item.image}`)}
+                        onClick={() => openFullScreenImage(`http://3.140.190.237:3002/${item.image}`)}
                       />
                     )
                   )}
@@ -209,7 +209,7 @@ const PettyCashList = () => {
                   </button>
                 </td>
                 <td className='button-container'>
-                <button onClick={() => openFullScreenImage(`http://18.217.96.83:3001/${item.image}`)}>View</button>
+                <button onClick={() => openFullScreenImage(`http://3.140.190.237:3002/${item.image}`)}>View</button>
                 </td>
               </tr>
             ))}
